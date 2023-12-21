@@ -69,7 +69,7 @@ export default function PageHolder() {
   return (
     <div>
       <AppBar
-        title={title+(subTitle!="default"?" - "+subTitle:"")}
+        title={title+(subTitle!=="default"?" - "+subTitle:"")}
         toggleDrawer={toggleDrawer}
         color={page[title].color}
       ></AppBar>

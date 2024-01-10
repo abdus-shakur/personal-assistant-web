@@ -98,13 +98,13 @@ export default function CategorizedContacts() {
       {/* <Paper square={false} style={{margin:"2rem"}} elevation={5}> */}
       <Box sx={{ flexGrow: 1, padding: "2rem" }}>
         <Grid container direction="column" rowSpacing={1} columnSpacing={1}>
-          <ListItem>
+          {/* <ListItem>
             <MenuItem>MenuItem</MenuItem>
             <Button href="https://wa.me/9482756382?text=Wish%20You%20a%20Very%20Happy%20Birthday%20%21%20%E2%9D%A4%EF%B8%8F">
               Whatsapp Call
             </Button>
           </ListItem>
-          {item("7904001237", "Wish You a very Happy Birthday ! ❤️❤️")}
+          {item("7904001237", "Wish You a very Happy Birthday ! ❤️❤️")} */}
           <ContactsSearchTable ></ContactsSearchTable>
           {/* {contacts.map(contact=>line(contact.name,contact.number,"Wish You a very Happy Birthday ! ❤️❤️"))} */}
         </Grid>

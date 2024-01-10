@@ -25,6 +25,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { GetBasicVcards } from "../../service/RelationManager/CategorizedContacts/getData";
 import { MoreVert } from "@mui/icons-material";
+import { Button, ListItem, ListItemButton, MenuItem, Popover } from "@mui/material";
 
 function createData(id, name, calories, fat, carbs, protein) {
   return {
@@ -169,7 +170,7 @@ EnhancedTableHead.propTypes = {
 };
 
 function EnhancedTableToolbar(props) {
-  const { numSelected } = props;
+  const { numSelected ,handlePopClick} = props;
 
   return (
     <Toolbar
@@ -214,7 +215,7 @@ function EnhancedTableToolbar(props) {
         </Tooltip>
         {numSelected === 1 ?
         <Tooltip title="More">
-          <IconButton>
+          <IconButton onClick={handlePopClick}>
             <MoreVert />
           </IconButton>
         </Tooltip>:<div></div>}
@@ -242,7 +243,7 @@ export default function ContactsSearchTable() {
   const [dense, setDense] = React.useState(true);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-  const [contacts, setContacts] = useState({ objects: [] });
+  const [contacts, setContacts] = useState([]);
   const dummyDateValue = "Z";
   useEffect(() => {
     GetBasicVcards()
@@ -260,7 +261,7 @@ export default function ContactsSearchTable() {
             let birthday = new Date(dat.birthDay.substring(0,10));
             let tempBdayString = `${birthday.getUTCMonth()}/${birthday.getDate()}/${new Date().getFullYear()}`;
             birthday = new Date(`${birthday.getFullYear()}-${birthday.getUTCMonth()+1}-${birthday.getDate()}`);
-            cont.birthday = birthday.toLocaleString('en-us',{day:'numeric',month:'short', year:'numeric',timeZone:'UTC'});
+            cont.birthday = birthday.toLocaleString('en-us',{day:'numeric',month:'short', year:'numeric'});
             let today = new Date(new Date().getUTCMonth()+"/"+new Date().getDate()+"/"+new Date().getFullYear());
             let bday = new Date(tempBdayString);
             cont.birthdayRemaining = Math.abs(bday-today)/(1000*60*60*24);
@@ -271,10 +272,7 @@ export default function ContactsSearchTable() {
           
           contHolder.push(cont);
         });
-        setContacts((prevState) => ({
-          ...prevState,
-          objects: contHolder,
-        }));
+        setContacts((prevState) => (contHolder));
       })
       .catch((error) => {
         console.error(error);
@@ -289,7 +287,7 @@ export default function ContactsSearchTable() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelected = contacts.objects.map((n) => n.id);
+      const newSelected = contacts.map((n) => n.id);
       setSelected(newSelected);
       return;
     }
@@ -333,22 +331,35 @@ export default function ContactsSearchTable() {
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0
-      ? Math.max(0, (1 + page) * rowsPerPage - contacts.objects.length)
+      ? Math.max(0, (1 + page) * rowsPerPage - contacts.length)
       : 0;
 
   const visibleContacts = React.useMemo(
     () =>
-      stableSort(contacts.objects, getComparator(order, orderBy)).slice(
+      stableSort(contacts, getComparator(order, orderBy)).slice(
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
       ),
     [order, orderBy, page, rowsPerPage]
   );
+  const [openPopover,setOpenPopover] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handlePopClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
 
   return (
     <Box sx={{ width: "100%" }}>
       <Paper sx={{ width: "100%", mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
+        <EnhancedTableToolbar numSelected={selected.length} handlePopClick={handlePopClick}/>
         <TableContainer sx={{ maxHeight: "70vh" }}>
           <Table
             stickyHeader
@@ -364,6 +375,20 @@ export default function ContactsSearchTable() {
               onRequestSort={handleRequestSort}
               rowCount={contacts.length}
             />
+<Popover
+  id={id}
+  open={open}
+  anchorEl={anchorEl}
+  onClose={handlePopClose}
+  anchorOrigin={{
+    vertical: 'bottom',
+    horizontal: 'left',
+  }}
+>
+  <ListItem ><ListItemButton href={`tel:${contacts.filter(con=>selected==con.id).map(con=>con.number)}`}>Call : {contacts.filter(con=>selected==con.id).map(con=>con.name)}</ListItemButton></ListItem>
+  <ListItem ><ListItemButton href={`https://wa.me/${contacts.filter(con=>selected==con.id).map(con=>con.number)}`}>Whatsapp Chat</ListItemButton></ListItem>
+  <ListItem><MenuItem>Wish Birthday</MenuItem></ListItem>
+</Popover>
             <TableBody>
               {visibleContacts.map((row, index) => {
                 const isItemSelected = isSelected(row.id);
@@ -422,7 +447,7 @@ export default function ContactsSearchTable() {
         <TablePagination
           rowsPerPageOptions={[1, 5, 10, 25, 50, 100]}
           component="div"
-          count={contacts.objects.length}
+          count={contacts.length}
           rowsPerPage={rowsPerPage}
           page={page}
           onPageChange={handleChangePage}

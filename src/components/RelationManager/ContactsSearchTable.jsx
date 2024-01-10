@@ -24,8 +24,8 @@ import { visuallyHidden } from "@mui/utils";
 import { useState } from "react";
 import { useEffect } from "react";
 import { GetBasicVcards } from "../../service/RelationManager/CategorizedContacts/getData";
-import { MoreVert } from "@mui/icons-material";
-import { Button, ListItem, ListItemButton, MenuItem, Popover } from "@mui/material";
+import { Call, CallOutlined, CallSharp, CallToAction, ContactPageOutlined, MoreVert, SendOutlined } from "@mui/icons-material";
+import { Button, ListItem, ListItemButton, ListItemIcon, ListItemText, MenuItem, Popover } from "@mui/material";
 
 function createData(id, name, calories, fat, carbs, protein) {
   return {
@@ -385,9 +385,27 @@ export default function ContactsSearchTable() {
     horizontal: 'left',
   }}
 >
-  <ListItem ><ListItemButton href={`tel:${contacts.filter(con=>selected==con.id).map(con=>con.number)}`}>Call : {contacts.filter(con=>selected==con.id).map(con=>con.name)}</ListItemButton></ListItem>
-  <ListItem ><ListItemButton href={`https://wa.me/${contacts.filter(con=>selected==con.id).map(con=>con.number)}`}>Whatsapp Chat</ListItemButton></ListItem>
-  <ListItem><MenuItem>Wish Birthday</MenuItem></ListItem>
+  <ListItem disablePadding>
+    <ListItemButton href={`tel:${contacts.filter(con=>selected==con.id).map(con=>con.number)}`}>
+            <ListItemIcon>
+               <CallOutlined/>
+             </ListItemIcon>
+             <ListItemText primary={`Call : ${contacts.filter(con=>selected==con.id).map(con=>con.name)}`} />
+           </ListItemButton></ListItem>
+  <ListItem disablePadding>
+    <ListItemButton href={`https://wa.me/${contacts.filter(con=>selected==con.id).map(con=>con.number.replace('+','').replace(' ',''))}`}>
+            <ListItemIcon>
+               <SendOutlined/>
+             </ListItemIcon>
+             <ListItemText primary="Whatsapp Chat" />
+           </ListItemButton></ListItem>
+  <ListItem disablePadding>
+    <ListItemButton >
+            <ListItemIcon>
+               <ContactPageOutlined />
+             </ListItemIcon>
+             <ListItemText primary="View Contact Details" />
+           </ListItemButton></ListItem>
 </Popover>
             <TableBody>
               {visibleContacts.map((row, index) => {

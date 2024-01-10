@@ -54,12 +54,13 @@ export default function TemporaryDrawer(prop) {
   function changePage(page,subMenu,anchor,prop){
     prop.changePage(page,subMenu);
     toggleDrawer(anchor, false,prop);
+    console.log("Toggled Drawer")
   }
 
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
+      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 300 }}
       role="presentation"
       onKeyDown={toggleDrawer(anchor, false,prop)}
     >
@@ -113,6 +114,7 @@ export default function TemporaryDrawer(prop) {
     <div>
       <React.Fragment key={anchor}>
         <Drawer
+          sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : '50%' }}
           anchor={anchor}
           open={prop.open}
           onClose={toggleDrawer(anchor, false,prop)}

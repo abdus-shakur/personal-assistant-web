@@ -8,10 +8,11 @@ import CircleManagementPage from "./CircleManagementPage";
 import NavDrawer from "../components/NavDrawer";
 import ApplicationManagement from "./ApplicationManagement";
 import UrlPage from "./UrlPage";
+import CategorizedContacts from "./CategorizedContacts";
 
 export default function PageHolder() {
   const [title, setTitle] = useState("Relation Manager");
-  const [subTitle, setSubTitle] = useState("Urls");
+  const [subTitle, setSubTitle] = useState("Categorized Contacts");
   const [drawerOpen, setDrawerOpen] = useState(false);
   var menus = {
     Home :{
@@ -32,7 +33,7 @@ export default function PageHolder() {
     "Relation Manager": {
       "default" : <CircleManagementPage></CircleManagementPage>,
       "Birthday Reminder": <ContactViewPage></ContactViewPage>,
-      "Categorized Contacts": <ContactViewPage></ContactViewPage>,
+      "Categorized Contacts": <CategorizedContacts></CategorizedContacts>,
       "Contacts View": <ContactViewPage></ContactViewPage>,
       "Urls":<UrlPage></UrlPage>
     },
@@ -61,7 +62,7 @@ export default function PageHolder() {
     },
   });
 
-  function changePage(pageName, subMenu) {
+  async function changePage(pageName, subMenu) {
     console.log("Launch Page : " + pageName + " : Sub Menu : " + subMenu);
     if (null == subMenu) {
       setTitle(pageName);
@@ -90,6 +91,7 @@ export default function PageHolder() {
         title={title}
         changePage={changePage}
       ></NavDrawer>
+      <div style={{height:'64px',width:'100%'}}></div>
       {menus[title][subTitle]}
     </div>
   );

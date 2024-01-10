@@ -6,10 +6,12 @@ import FinancePage from "./FinancePage";
 import ContactViewPage from "./ContactViewPage";
 import CircleManagementPage from "./CircleManagementPage";
 import NavDrawer from "../components/NavDrawer";
+import ApplicationManagement from "./ApplicationManagement";
+import UrlPage from "./UrlPage";
 
 export default function PageHolder() {
-  const [title, setTitle] = useState("Home");
-  const [subTitle, setSubTitle] = useState("default");
+  const [title, setTitle] = useState("Relation Manager");
+  const [subTitle, setSubTitle] = useState("Urls");
   const [drawerOpen, setDrawerOpen] = useState(false);
   var menus = {
     Home :{
@@ -24,11 +26,15 @@ export default function PageHolder() {
       "default" : <FinancePage></FinancePage>,
       "Income Tax": <FinancePage></FinancePage>,
     },
+    "Application Manager": {
+      "default" : <ApplicationManagement></ApplicationManagement>,
+    },
     "Relation Manager": {
       "default" : <CircleManagementPage></CircleManagementPage>,
       "Birthday Reminder": <ContactViewPage></ContactViewPage>,
       "Categorized Contacts": <ContactViewPage></ContactViewPage>,
       "Contacts View": <ContactViewPage></ContactViewPage>,
+      "Urls":<UrlPage></UrlPage>
     },
 
   };
@@ -45,9 +51,13 @@ export default function PageHolder() {
       color: "#392467",
       subMenu: ["Income Tax"],
     },
+    "Application Manager":{
+      color: "#392467",
+      subMenu : ["default"]
+    },
     "Relation Manager": {
       color: "#29ADB2",
-      subMenu: ["Birthday Reminder", "Categorized Contacts","Contacts View"],
+      subMenu: ["Birthday Reminder", "Categorized Contacts","Contacts View","Urls"],
     },
   });
 

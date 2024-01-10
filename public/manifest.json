@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Personal Assistant",
+  "name": "Personal Assistant Web App",
   "icons": [
     {
       "src": "favicon.ico",

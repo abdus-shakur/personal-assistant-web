@@ -9,6 +9,7 @@ import NavDrawer from "../components/NavDrawer";
 import ApplicationManagement from "./ApplicationManagement";
 import UrlPage from "./UrlPage";
 import CategorizedContacts from "./CategorizedContacts";
+import VCardContactViewPage from "./VCardContactViewPage";
 
 export default function PageHolder() {
   const [title, setTitle] = useState("Relation Manager");
@@ -34,7 +35,7 @@ export default function PageHolder() {
       "default" : <CircleManagementPage></CircleManagementPage>,
       "Birthday Reminder": <ContactViewPage></ContactViewPage>,
       "Categorized Contacts": <CategorizedContacts></CategorizedContacts>,
-      "Contacts View": <ContactViewPage></ContactViewPage>,
+      "Contacts View": <VCardContactViewPage></VCardContactViewPage>,
       "Urls":<UrlPage></UrlPage>
     },
 

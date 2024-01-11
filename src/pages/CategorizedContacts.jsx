@@ -15,6 +15,7 @@ import { DataObjectSharp } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { GetBasicVcards } from "../service/RelationManager/CategorizedContacts/getData";
 import ContactsSearchTable from "../components/RelationManager/ContactsSearchTable";
+import ContactsFilterTable from "../components/RelationManager/ContactsFilterTable";
 
 
 export default function CategorizedContacts() {
@@ -106,6 +107,7 @@ export default function CategorizedContacts() {
           </ListItem>
           {item("7904001237", "Wish You a very Happy Birthday ! ❤️❤️")} */}
           <ContactsSearchTable ></ContactsSearchTable>
+          <ContactsFilterTable></ContactsFilterTable>
           {/* {contacts.map(contact=>line(contact.name,contact.number,"Wish You a very Happy Birthday ! ❤️❤️"))} */}
         </Grid>
       </Box>

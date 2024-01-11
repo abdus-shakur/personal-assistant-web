@@ -23,7 +23,7 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import { useState } from "react";
 import { useEffect } from "react";
-import { GetBasicVcards } from "../../service/RelationManager/CategorizedContacts/getData";
+import { GetBasicVcards, GetVcardById } from "../../service/RelationManager/CategorizedContacts/getData";
 import { Call, CallOutlined, CallSharp, CallToAction, ContactPageOutlined, MoreVert, SendOutlined } from "@mui/icons-material";
 import { Button, ListItem, ListItemButton, ListItemIcon, ListItemText, MenuItem, Popover } from "@mui/material";
 
@@ -241,9 +241,14 @@ export default function ContactsSearchTable() {
   const [selected, setSelected] = React.useState([]);
   const [page, setPage] = React.useState(0);
   const [dense, setDense] = React.useState(true);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState([{
+    "id": 3,
+    "name": "A Cheenu",
+    "number":"123456",
+    "birthday":new Date().toLocaleString('en-us')
+}]);
   const dummyDateValue = "Z";
   useEffect(() => {
     GetBasicVcards()
@@ -262,7 +267,7 @@ export default function ContactsSearchTable() {
             let tempBdayString = `${birthday.getUTCMonth()}/${birthday.getDate()}/${new Date().getFullYear()}`;
             birthday = new Date(`${birthday.getFullYear()}-${birthday.getUTCMonth()+1}-${birthday.getDate()}`);
             cont.birthday = birthday.toLocaleString('en-us',{day:'numeric',month:'short', year:'numeric'});
-            let today = new Date(new Date().getUTCMonth()+"/"+new Date().getDate()+"/"+new Date().getFullYear());
+            let today = new Date();
             let bday = new Date(tempBdayString);
             cont.birthdayRemaining = Math.abs(bday-today)/(1000*60*60*24);
           }else{
@@ -272,7 +277,7 @@ export default function ContactsSearchTable() {
           
           contHolder.push(cont);
         });
-        setContacts((prevState) => (contHolder));
+        setContacts(()=>contHolder.map(con=>{return con;}));
       })
       .catch((error) => {
         console.error(error);
@@ -340,7 +345,7 @@ export default function ContactsSearchTable() {
         page * rowsPerPage,
         page * rowsPerPage + rowsPerPage
       ),
-    [order, orderBy, page, rowsPerPage]
+    [contacts,order, orderBy, page, rowsPerPage]
   );
   const [openPopover,setOpenPopover] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -353,6 +358,10 @@ export default function ContactsSearchTable() {
     setAnchorEl(null);
   };
 
+  const getContactDetails = (id)=>{
+    GetVcardById(id).then(response=>console.log(JSON.stringify(response.data)));
+  }
+
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
 
@@ -360,8 +369,8 @@ export default function ContactsSearchTable() {
     <Box sx={{ width: "100%" }}>
       <Paper sx={{ width: "100%", mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} handlePopClick={handlePopClick}/>
-        <TableContainer sx={{ maxHeight: "70vh" }}>
-          <Table
+        <TableContainer  sx={{ maxHeight: "70vh" }}>
+          <Table 
             stickyHeader
             sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
@@ -400,7 +409,7 @@ export default function ContactsSearchTable() {
              <ListItemText primary="Whatsapp Chat" />
            </ListItemButton></ListItem>
   <ListItem disablePadding>
-    <ListItemButton >
+    <ListItemButton onClick={()=>getContactDetails(contacts.filter(con=>selected==con.id).map(con=>con.id))}>
             <ListItemIcon>
                <ContactPageOutlined />
              </ListItemIcon>

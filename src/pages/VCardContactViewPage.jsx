@@ -5,9 +5,23 @@ import { DataObjectSharp } from "@mui/icons-material";
 import { GetVcardById } from "../service/RelationManager/CategorizedContacts/getData";
 import { useEffect, useState } from "react";
 
-export default function ContactViewPage() {
+export default function VCardContactViewPage() {
+  
+  const [contact,setContact] = useState({});
+
+  const getContactDetails = (id)=>{
+    GetVcardById(id).then(response=>{
+      let responseContact = response.data;
+      setContact(responseContact);
+    });
+  }
+
+  useEffect(()=>{
+    getContactDetails(573);
+  },[]);
+
   var contactStructure = {
-    "Name" : ["Name Prefix","First Name","Middle Name","Sur Name","Name Suffix"],
+    "Name" : ["Full Name","Name Prefix","First Name","Middle Name","Sur Name","Name Suffix","ID"],
     "Company":["Company","Department","Title"],
     "Phone":["Phone - Main","Phone - Home","Phone - Work"],
     "Significant Date":["Birthday","Anniversary"],
@@ -17,12 +31,27 @@ export default function ContactViewPage() {
     "Others":['Notes','Label']
   };
 
-  
+  var mappings = {
+    "Name Prefix":"namePrefix",
+    "Full Name":"fullName",
+    "First Name":"firstName","Middle Name":"middleName","Sur Name":"surName","Name Suffix":"nameSuffix",
+    "Birthday":"birthDay","ID":"id"
+
+  };
+
+  const valueChange = (event)=>{
+    console.log(event.target);
+    setContact((prev)=>({
+      ...prev,
+      [mappings[event.target.name]]:event.target.value
+    }))
+  }
 
   function Item(name) {
     return (
       <Grid item>
-        <TextField label={name} variant="outlined"></TextField>
+        {console.log(`name : ${name}, mappings : ${mappings[name]}, contact value : ${contact[mappings[name]]}`)}
+        <TextField sx={{ width: "12.5rem" }} name={name} label={name} variant="outlined" onChange={valueChange} value={contact[mappings[name]]|| ''}></TextField>
       </Grid>
     );
   }
@@ -49,7 +78,6 @@ export default function ContactViewPage() {
   return (
     <div>
       <CssBaseline />
-      {/* <Paper square={false} style={{margin:"2rem"}} elevation={5}> */}
       <Box sx={{ flexGrow: 1, padding: "2rem" }}>
         <Grid container direction="column" rowSpacing={1} columnSpacing={1}>
           {Object.entries(contactStructure).map((item,index)=>{
@@ -57,7 +85,6 @@ export default function ContactViewPage() {
           })}
         </Grid>
       </Box>
-      {/* </Paper> */}
     </div>
   );
 }

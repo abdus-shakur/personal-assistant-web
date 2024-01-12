@@ -13,7 +13,7 @@ export default function ContactsFilterTable() {
 
   return (
     <div style={{ height: 400, width: '100%' }}>
-      <DataGrid  slots={{ toolbar: GridToolbar }} />
+      <DataGrid {...data} slots={{ toolbar: GridToolbar }} />
     </div>
   );
 }

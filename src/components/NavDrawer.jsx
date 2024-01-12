@@ -80,7 +80,7 @@ export default function TemporaryDrawer(prop) {
           </ListItem>
           <Collapse in={menuExpanded[text[0]]} timeout="auto" unmountOnExit>
           {null==prop.pages[text[0]]?<div>Empty</div>:prop.pages[text[0]].subMenu.map((name, index) => (
-          <List component="div" disablePadding style={{backgroundColor:"#EEEEEE"}}>
+          <List component="div" disablePadding>
             <ListItemButton onClick={()=>changePage(text[0],name,anchor,prop)}>
               <ListItemIcon>
                 {/* <InboxIcon /> */}

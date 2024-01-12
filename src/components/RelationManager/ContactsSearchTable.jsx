@@ -27,33 +27,6 @@ import { GetBasicVcards, GetVcardById } from "../../service/RelationManager/Cate
 import { Call, CallOutlined, CallSharp, CallToAction, ContactPageOutlined, MoreVert, SendOutlined } from "@mui/icons-material";
 import { Button, ListItem, ListItemButton, ListItemIcon, ListItemText, MenuItem, Popover } from "@mui/material";
 
-function createData(id, name, calories, fat, carbs, protein) {
-  return {
-    id,
-    name,
-    calories,
-    fat,
-    carbs,
-    protein,
-  };
-}
-
-const rows1 = [
-  createData(1, "Cupcake", 305, 3.7, 67, 4.3),
-  createData(2, "Donut", 452, 25.0, 51, 4.9),
-  createData(3, "Eclair", 262, 16.0, 24, 6.0),
-  createData(4, "Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData(5, "Gingerbread", 356, 16.0, 49, 3.9),
-  createData(6, "Honeycomb", 408, 3.2, 87, 6.5),
-  createData(7, "Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData(8, "Jelly Bean", 375, 0.0, 94, 0.0),
-  createData(9, "KitKat", 518, 26.0, 65, 7.0),
-  createData(10, "Lollipop", 392, 0.2, 98, 0.0),
-  createData(11, "Marshmallow", 318, 0, 81, 2.0),
-  createData(12, "Nougat", 360, 19.0, 9, 37.0),
-  createData(13, "Oreo", 437, 18.0, 63, 4.0),
-];
-
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -347,7 +320,6 @@ export default function ContactsSearchTable() {
       ),
     [contacts,order, orderBy, page, rowsPerPage]
   );
-  const [openPopover,setOpenPopover] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handlePopClick = (event) => {
@@ -384,38 +356,38 @@ export default function ContactsSearchTable() {
               onRequestSort={handleRequestSort}
               rowCount={contacts.length}
             />
-<Popover
-  id={id}
-  open={open}
-  anchorEl={anchorEl}
-  onClose={handlePopClose}
-  anchorOrigin={{
-    vertical: 'bottom',
-    horizontal: 'left',
-  }}
->
-  <ListItem disablePadding>
-    <ListItemButton href={`tel:${contacts.filter(con=>selected==con.id).map(con=>con.number)}`}>
-            <ListItemIcon>
-               <CallOutlined/>
-             </ListItemIcon>
-             <ListItemText primary={`Call : ${contacts.filter(con=>selected==con.id).map(con=>con.name)}`} />
-           </ListItemButton></ListItem>
-  <ListItem disablePadding>
-    <ListItemButton href={`https://wa.me/${contacts.filter(con=>selected==con.id).map(con=>con.number.replace('+','').replace(' ',''))}`}>
-            <ListItemIcon>
-               <SendOutlined/>
-             </ListItemIcon>
-             <ListItemText primary="Whatsapp Chat" />
-           </ListItemButton></ListItem>
-  <ListItem disablePadding>
-    <ListItemButton onClick={()=>getContactDetails(contacts.filter(con=>selected==con.id).map(con=>con.id))}>
-            <ListItemIcon>
-               <ContactPageOutlined />
-             </ListItemIcon>
-             <ListItemText primary="View Contact Details" />
-           </ListItemButton></ListItem>
-</Popover>
+            <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handlePopClose}
+            anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+            }}
+            >
+            <ListItem disablePadding>
+                <ListItemButton href={`tel:${contacts.filter(con=>selected==con.id).map(con=>con.number)}`}>
+                        <ListItemIcon>
+                        <CallOutlined/>
+                        </ListItemIcon>
+                        <ListItemText primary={`Call : ${contacts.filter(con=>selected==con.id).map(con=>con.name)}`} />
+                    </ListItemButton></ListItem>
+            <ListItem disablePadding>
+                <ListItemButton href={`https://wa.me/${contacts.filter(con=>selected==con.id).map(con=>con.number.replace('+','').replace(' ',''))}`}>
+                        <ListItemIcon>
+                        <SendOutlined/>
+                        </ListItemIcon>
+                        <ListItemText primary="Whatsapp Chat" />
+                    </ListItemButton></ListItem>
+            <ListItem disablePadding>
+                <ListItemButton onClick={()=>getContactDetails(contacts.filter(con=>selected==con.id).map(con=>con.id))}>
+                        <ListItemIcon>
+                        <ContactPageOutlined />
+                        </ListItemIcon>
+                        <ListItemText primary="View Contact Details" />
+                    </ListItemButton></ListItem>
+            </Popover>
             <TableBody>
               {visibleContacts.map((row, index) => {
                 const isItemSelected = isSelected(row.id);
@@ -453,9 +425,6 @@ export default function ContactsSearchTable() {
                     <Tooltip title={row.birthdayRemaining}>
                     <TableCell align="center" >{row.birthday===dummyDateValue?null:row.birthday}</TableCell>
                     </Tooltip>
-                    
-                    {/* <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell> */}
                   </TableRow>
                 );
               })}

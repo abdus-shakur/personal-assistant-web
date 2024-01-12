@@ -12,8 +12,8 @@ import CategorizedContacts from "./CategorizedContacts";
 import VCardContactViewPage from "./VCardContactViewPage";
 
 export default function PageHolder() {
-  const [title, setTitle] = useState("Relation Manager");
-  const [subTitle, setSubTitle] = useState("Categorized Contacts");
+  const [title, setTitle] = useState("Task");
+  const [subTitle, setSubTitle] = useState("To Do List");
   const [drawerOpen, setDrawerOpen] = useState(false);
   var menus = {
     Home :{

@@ -10,6 +10,7 @@ import ApplicationManagement from "./ApplicationManagement";
 import UrlPage from "./UrlPage";
 import CategorizedContacts from "./CategorizedContacts";
 import VCardContactViewPage from "./VCardContactViewPage";
+import EmailManager from "./EmailManager";
 
 export default function PageHolder() {
   const [title, setTitle] = useState("Task");
@@ -30,6 +31,7 @@ export default function PageHolder() {
     },
     "Application Manager": {
       "default" : <ApplicationManagement></ApplicationManagement>,
+      "Email Manager" : <EmailManager></EmailManager>,
     },
     "Relation Manager": {
       "default" : <CircleManagementPage></CircleManagementPage>,
@@ -55,7 +57,7 @@ export default function PageHolder() {
     },
     "Application Manager":{
       color: "#392467",
-      subMenu : ["default"]
+      subMenu : ["default","Email Manager"]
     },
     "Relation Manager": {
       color: "#29ADB2",

@@ -10,6 +10,8 @@ import ApplicationManagement from "./ApplicationManagement";
 import UrlPage from "./UrlPage";
 import CategorizedContacts from "./CategorizedContacts";
 import VCardContactViewPage from "./VCardContactViewPage";
+import EmailManager from "./EmailManager";
+import EmailPage from "./EmailPage";
 
 export default function PageHolder() {
   const [title, setTitle] = useState("Task");
@@ -30,6 +32,7 @@ export default function PageHolder() {
     },
     "Application Manager": {
       "default" : <ApplicationManagement></ApplicationManagement>,
+      "Email Manager" : <EmailManager></EmailManager>,
     },
     "Relation Manager": {
       "default" : <CircleManagementPage></CircleManagementPage>,
@@ -38,9 +41,13 @@ export default function PageHolder() {
       "Contacts View": <VCardContactViewPage></VCardContactViewPage>,
       "Urls":<UrlPage></UrlPage>
     },
+    "Google Integrations":{
+      "default":<EmailPage></EmailPage>,
+      "Email":<EmailPage></EmailPage>
+    }
 
   };
-  const [page, setPage] = useState({
+  const page ={
     Home: {
       color: "#5F0F40",
       subMenu: ["Dashboard"],
@@ -55,13 +62,17 @@ export default function PageHolder() {
     },
     "Application Manager":{
       color: "#392467",
-      subMenu : ["default"]
+      subMenu : ["Email Manager"]
     },
     "Relation Manager": {
       color: "#29ADB2",
       subMenu: ["Birthday Reminder", "Categorized Contacts","Contacts View","Urls"],
     },
-  });
+    "Google Integrations":{
+      color: "#29ADB2",
+      subMenu: ["Email"],
+    }
+  };
 
   async function changePage(pageName, subMenu) {
     console.log("Launch Page : " + pageName + " : Sub Menu : " + subMenu);

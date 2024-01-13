@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import dayjs from 'dayjs';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import {
+  Close,
     CloseOutlined,
   DeleteForeverOutlined,
   Edit,
@@ -64,7 +65,7 @@ function TaskAccordion(props) {
   const [popOverAnchor,setPopOverAnchor] = useState(null);
   const [popoverTask,setPopoverTask] = useState(null);
   const [showUpdate,setShowUpdate] = useState(false);
-  const [updateTaskInput,setUpdateTaskInput] = useState(null);
+  const [updateTaskInput,setUpdateTaskInput] = useState({});
   const id = Boolean(popOverAnchor) ? 'simple-popover' : undefined;
   const handleChecked = (task) => () => {
     setChecked((prev) => ({
@@ -125,14 +126,14 @@ function TaskAccordion(props) {
           {name}
         </AccordionSummary>
         {tasks.map((task) => (
-          <AccordionDetails key={task.id} id={"accordion-details" + task.id}>
+          <AccordionDetails key={task.id} style={{padding:'0',paddingBottom:'0.5rem'}} id={"accordion-details" + task.id}>
             <ListItem disablePadding>
               <Checkbox
                 name={"checked-" + task.id}
                 onChange={handleChecked(task)}
                 checked={checked[task.id] || false}
               />
-              <ListItemText
+              <ListItemText style={{fontSize:'0.3rem'}}
                 onClick={handleChecked(task)}
                 primary={task.task}
                 secondary={task.description}
@@ -164,7 +165,7 @@ function TaskAccordion(props) {
               open={showInfo[task.id] || false}
               setOpen={handleShowInfo}
             ></TaskModal>
-            <CreateTask title={"Update"} openModal={showUpdate} updateTask={()=>{setShowUpdate(false);updateTask();}} taskInput={updateTaskInput}></CreateTask>
+            {updateTaskInput===task?<CreateTask title={"Update"} openModal={showUpdate} updateTask={()=>{setShowUpdate(false);updateTask();}} taskInput={updateTaskInput}></CreateTask>:<div></div>}
           </AccordionDetails>
         ))}
       </Accordion>
@@ -215,7 +216,8 @@ function TaskModal(props) {
 
   const formatDate = (input)=>{
     let output = input;
-    if(typeof input == "string" && isNaN(input) && !isNaN(dayjs(input).$D)){
+    if(typeof input == "string" && isNaN(input) 
+    && !isNaN(dayjs(input).$D)&& dayjs(input, 'YYYY-MM-DDTHH:mm:ss.SSSZ', false).isValid()){
         output = dayjs(input).format("DD-MM-YYYY HH:mm");
     }
     return output;
@@ -286,7 +288,6 @@ function CreateTask(props) {
                 ...prev,
                 [name]:event.format('YYYY-MM-DD HH:mm:ss')
             }))
-            console.log(event.format('YYYY-MM-DD HH:mm:ss'));
         }
     };
 
@@ -368,13 +369,20 @@ export default function TaskPage() {
     },
     { id: "300", task: "Task Name 2 34", description: "task description" },
   ]);
+
+  const [snackDetails,setSnackDetails] = useState({open:false,message:""})
   useEffect(() => {
     getAllTasks();
   }, []);
   function getAllTasks() {
     GetTasks()
-      .then((response) => setTasks(() => [...response.data]))
-      .catch((error) => alert(error));
+      .then((response)=>{
+          setTasks(() => [...response.data])
+          setSnackDetails((prev)=>({...prev,open:true,message:"Get All Task Completed Successfully !"}))
+      }).catch((error)=>{
+          setSnackDetails((prev)=>({...prev,open:true,message:"Error getting Tasks : "+error.message}))
+      }).finally(()=>{
+      });
   }
 
   const updateTask = ()=>{
@@ -385,7 +393,7 @@ export default function TaskPage() {
     <React.Fragment>
       {Object.entries(states).map((state, index) => (
         <TaskAccordion
-          key={state[0]}
+          key={index}
           defaultOpen={false}
           name={states[state[0]]}
           tasks={tasks.filter((task) => task.status === state[0])}
@@ -394,6 +402,7 @@ export default function TaskPage() {
       ))}
       
       <CreateTask title={"Create"} updateTask={updateTask} taskInput={{task:"",description:"",status:"",category:"",plannedCompletionDate:dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')}} ></CreateTask>
+      <Snackbar color="inherit" open={snackDetails.open} anchorOrigin={{horizontal:"left",vertical:"bottom"}} message={snackDetails.message} autoHideDuration={3000} action={<div><IconButton color="inherit" onClick={()=>setSnackDetails((prev)=>({...prev,open:!snackDetails.open}))}><Close/></IconButton></div>}></Snackbar>
     </React.Fragment>
   );
 }

@@ -47,7 +47,7 @@ export default function TemporaryDrawer(prop) {
       ...prev,
       [page]:!prev[page],
     }));
-    changePage(page,null,anchor,prop);
+    // changePage(page,null,anchor,prop);
   }
 
   function changePage(page,subMenu,anchor,prop){

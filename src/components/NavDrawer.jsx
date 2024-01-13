@@ -37,7 +37,6 @@ export default function TemporaryDrawer(prop) {
     Object.entries(prop.pages).forEach((text,index)=>{
       obj[text[0]] = false;
     })
-    console.log(JSON.stringify(obj));
     return obj;
   };
 
@@ -54,7 +53,6 @@ export default function TemporaryDrawer(prop) {
   function changePage(page,subMenu,anchor,prop){
     prop.changePage(page,subMenu);
     toggleDrawer(anchor, false,prop);
-    console.log("Toggled Drawer")
   }
 
 
@@ -67,20 +65,19 @@ export default function TemporaryDrawer(prop) {
       <List>
         {Object.entries(prop.pages).map((text, index) => (
           
-          <React.Fragment>
-            {console.log(`Value : ${text[0]} : ${menuExpanded[text[0]]}`)}
+          <React.Fragment key={text[0]}>
           <ListItem key={text[0]} disablePadding >
             <ListItemButton onClick={()=>expandMenuItem(text[0],anchor,prop)}>
-              <ListItemIcon>
+              <ListItemIcon >
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
-              <ListItemText primary={text[0]} />
+              <ListItemText key={text[0]} primary={text[0]} />
               {menuExpanded[text[0]] ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
           </ListItem>
           <Collapse in={menuExpanded[text[0]]} timeout="auto" unmountOnExit>
           {null==prop.pages[text[0]]?<div>Empty</div>:prop.pages[text[0]].subMenu.map((name, index) => (
-          <List component="div" disablePadding>
+          <List component="div" disablePadding key={text[0]}>
             <ListItemButton onClick={()=>changePage(text[0],name,anchor,prop)}>
               <ListItemIcon>
                 {/* <InboxIcon /> */}

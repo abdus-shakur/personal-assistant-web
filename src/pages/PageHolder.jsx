@@ -85,7 +85,7 @@ export default function PageHolder() {
         toggleDrawer={toggleDrawer}
         color={page[title].color}
       ></AppBar>
-      <NavDrawer
+      <NavDrawer key={title}
         open={drawerOpen}
         toggleDrawer={toggleDrawer}
         pages={page}

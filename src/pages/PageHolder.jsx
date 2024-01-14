@@ -10,8 +10,8 @@ import ApplicationManagement from "./ApplicationManagement";
 import UrlPage from "./UrlPage";
 import CategorizedContacts from "./CategorizedContacts";
 import VCardContactViewPage from "./VCardContactViewPage";
-import EmailManager from "./EmailManager";
 import EmailPage from "./EmailPage";
+import EmailManager from "./EmailManager";
 
 export default function PageHolder() {
   const [title, setTitle] = useState("Task");

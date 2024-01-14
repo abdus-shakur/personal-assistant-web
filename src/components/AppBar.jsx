@@ -15,6 +15,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
+import { ChangeCircle, DarkMode } from "@mui/icons-material";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -57,6 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function PrimarySearchAppBar(prop) {
+  const {changeTheme} = prop;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -99,6 +101,7 @@ export default function PrimarySearchAppBar(prop) {
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={changeTheme}>Toggle Theme</MenuItem>
     </Menu>
   );
 
@@ -151,6 +154,19 @@ export default function PrimarySearchAppBar(prop) {
         </IconButton>
         <p>Profile</p>
       </MenuItem>
+      <MenuItem onClick={changeTheme}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <DarkMode />
+        </IconButton>
+        <p>Toggle Theme</p>
+      </MenuItem>
+      
     </Menu>
   );
 

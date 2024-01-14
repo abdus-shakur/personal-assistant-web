@@ -21,9 +21,11 @@ import {
   AccordionSummary,
   Alert,
   Backdrop,
+  Badge,
   Box,
   Button,
   Checkbox,
+  Chip,
   CircularProgress,
   Dialog,
   DialogActions,
@@ -50,9 +52,9 @@ import {
 import { useState } from "react";
 import GetTasks, { createTask, deleteTask ,updateTask as updateTaskToDo} from "../service/Tasks/GetData";
 import { LocalizationProvider, MobileDateTimePicker } from "@mui/x-date-pickers";
+import { useTheme } from "@mui/material";
 
 const states = { 0: "To Do", 1: "In Progress", 2: "Completed" };
-
 function TaskAccordion(props) {
   const { name, tasks, defaultOpen ,updateTask} = props;
   const [open, setOpen] = useState(defaultOpen);
@@ -67,6 +69,9 @@ function TaskAccordion(props) {
   const [showUpdate,setShowUpdate] = useState(false);
   const [updateTaskInput,setUpdateTaskInput] = useState({});
   const id = Boolean(popOverAnchor) ? 'simple-popover' : undefined;
+  
+  const theme = useTheme();
+
   const handleChecked = (task) => () => {
     setChecked((prev) => ({
       ...prev,
@@ -115,6 +120,11 @@ function TaskAccordion(props) {
     });
   };
 
+  function getStatusForAccordionType(){
+    return Object.keys(states).filter(key=>states[key]===name)[0];
+  }
+  
+
   return (
     <div>
       <Accordion expanded={open}>
@@ -122,8 +132,16 @@ function TaskAccordion(props) {
           onClick={() => setOpen(!open)}
           id="accordion-summary-1"
           expandIcon={<ExpandMoreOutlined />}
-        >
-          {name}
+        ><Grid container style={{display:"flex",alignItems:"center"}}>
+          <Grid item><Typography style={{paddingRight:"1rem"}} >{name}</Typography></Grid>
+          <Grid item>
+            <Chip style={{margin:"auto"}} label={tasks.length+" Tasks"} 
+            color={getStatusForAccordionType()==2?"success":
+                   getStatusForAccordionType()==1?"info":
+                   getStatusForAccordionType()==0?"warning":"error"} 
+              variant={theme.palette.mode==='dark'?"outlined":"filled"}>
+                </Chip></Grid>
+          </Grid>
         </AccordionSummary>
         {tasks.map((task) => (
           <AccordionDetails key={task.id} style={{padding:'0',paddingBottom:'0.5rem'}} id={"accordion-details" + task.id}>
@@ -180,7 +198,7 @@ function TaskAccordion(props) {
           vertical: 'bottom',
           horizontal: 'left',
         }} onClose={()=>setPopOverAnchor(null)}>
-            {Object.entries(states).filter((entry,index)=>entry[1]!==name).map((entry,index)=><MenuList key={index}><MenuItem onClick={()=>updateTaskItem(popoverTask,entry[0])}>Mark : {entry[1]}</MenuItem></MenuList>)}
+            {Object.entries(states).filter((entry,index)=>null===popoverTask?entry[1]!==name:entry[0]!=popoverTask.status).map((entry,index)=><MenuList key={index}><MenuItem onClick={()=>updateTaskItem(popoverTask,entry[0])}>Mark : {entry[1]}</MenuItem></MenuList>)}
         </Popover>
       <Snackbar color="inherit" onClose={()=>setSnackOpen(false)} autoHideDuration={2000} open={snackOpen} message={snackMessage} action={<div><IconButton onClick={()=>setSnackOpen(false)} size="small" color="inherit"><CloseOutlined font="small" color="inherit"/></IconButton></div>}></Snackbar>
     </div>
@@ -378,7 +396,6 @@ export default function TaskPage() {
     GetTasks()
       .then((response)=>{
           setTasks(() => [...response.data])
-          setSnackDetails((prev)=>({...prev,open:true,message:"Get All Task Completed Successfully !"}))
       }).catch((error)=>{
           setSnackDetails((prev)=>({...prev,open:true,message:"Error getting Tasks : "+error.message}))
       }).finally(()=>{
@@ -400,6 +417,17 @@ export default function TaskPage() {
           updateTask={updateTask}
         ></TaskAccordion>
       ))}
+      {console.log(tasks[8]?tasks[8].plannedCompletionDate:'')}
+      {console.log(tasks[8]?dayjs(tasks[8].plannedCompletionDate).isAfter(dayjs(new Date())):'')}
+      {tasks.filter((task) => task.status !== 2)
+          .filter((task) => dayjs(task.plannedCompletionDate).isAfter(dayjs(new Date()))).length>0?
+          <TaskAccordion
+          defaultOpen={false}
+          name={"Past Due"}
+          tasks={tasks.filter((task) => task.status !== "2")
+            .filter((task) => dayjs(task.plannedCompletionDate).isBefore(dayjs(new Date())))}
+          updateTask={updateTask}
+        ></TaskAccordion>:<div></div>}
       
       <CreateTask title={"Create"} updateTask={updateTask} taskInput={{task:"",description:"",status:"",category:"",plannedCompletionDate:dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')}} ></CreateTask>
       <Snackbar color="inherit" open={snackDetails.open} anchorOrigin={{horizontal:"left",vertical:"bottom"}} message={snackDetails.message} autoHideDuration={3000} action={<div><IconButton color="inherit" onClick={()=>setSnackDetails((prev)=>({...prev,open:!snackDetails.open}))}><Close/></IconButton></div>}></Snackbar>

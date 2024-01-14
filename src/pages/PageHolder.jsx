@@ -13,7 +13,8 @@ import VCardContactViewPage from "./VCardContactViewPage";
 import EmailPage from "./EmailPage";
 import EmailManager from "./EmailManager";
 
-export default function PageHolder() {
+export default function PageHolder(props) {
+  const {changeTheme} = props;
   const [title, setTitle] = useState("Task");
   const [subTitle, setSubTitle] = useState("To Do List");
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -95,6 +96,7 @@ export default function PageHolder() {
         title={title+(subTitle!=="default"?" - "+subTitle:"")}
         toggleDrawer={toggleDrawer}
         color={page[title].color}
+        changeTheme={changeTheme}
       ></AppBar>
       <NavDrawer key={title}
         open={drawerOpen}

@@ -45,7 +45,7 @@ export default function (props) {
               Forgot <a href="#">password?</a>
             </p>
             
-              <form action="./app">
+              <form action="app">
               <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary" >
                 Bypass Login

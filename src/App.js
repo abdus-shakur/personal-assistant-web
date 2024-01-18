@@ -37,7 +37,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           
-          <Route exact path="./app" element={<PageHolder changeTheme={()=>setThemePreference(!darkThemed)}></PageHolder>}></Route>
+          <Route exact path="app" element={<PageHolder changeTheme={()=>setThemePreference(!darkThemed)}></PageHolder>}></Route>
           <Route exact path="*" element={<AuthPage></AuthPage>}></Route>
         </Routes>
       </BrowserRouter>

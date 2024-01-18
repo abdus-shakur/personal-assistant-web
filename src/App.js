@@ -7,6 +7,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AuthPage from './pages/AuthPage';
 import "bootstrap/dist/css/bootstrap.min.css"
 
+import { Notifications } from 'react-push-notification';
+
 function App() {
 
   function getDefaultTheme(){
@@ -30,6 +32,7 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <Notifications/>
       <CssBaseline />
       <BrowserRouter>
         <Routes>

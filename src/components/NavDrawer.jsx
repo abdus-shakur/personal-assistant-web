@@ -12,6 +12,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { ExpandLess,ExpandMore } from "@mui/icons-material";
 import { Collapse } from "@mui/material";
+import MobileInfo from "./Utils/MobileInfo";
 
 export default function TemporaryDrawer(prop) {
   const [state, setState] = React.useState({
@@ -105,6 +106,10 @@ export default function TemporaryDrawer(prop) {
       </List>
     </Box>
   );
+
+  const additionalInfo  = ()=>{
+    return <div>additional Info</div>
+  }
   var anchor = "left";
 
   return (
@@ -117,6 +122,7 @@ export default function TemporaryDrawer(prop) {
           onClose={toggleDrawer(anchor, false,prop)}
         >
           {list(anchor)}
+          <MobileInfo></MobileInfo>
         </Drawer>
       </React.Fragment>
     </div>

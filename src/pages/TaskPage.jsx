@@ -6,12 +6,9 @@ import {
   Close,
     CloseOutlined,
   DeleteForeverOutlined,
-  Edit,
   EditNote,
-  EditNotificationsOutlined,
   ExpandMoreOutlined,
   InfoOutlined,
-  Label,
   PlayArrowOutlined,
 } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
@@ -19,9 +16,7 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Alert,
   Backdrop,
-  Badge,
   Box,
   Button,
   Checkbox,
@@ -45,7 +40,6 @@ import {
   Popover,
   Select,
   Snackbar,
-  SnackbarContent,
   TextField,
   Typography,
 } from "@mui/material";
@@ -79,7 +73,6 @@ function TaskAccordion(props) {
     }));
   };
   const handleShowInfo = (task) => () => {
-    console.log("CLose SHow info r: " + task.id);
     setShowInfo((prev) => ({
       ...prev,
       [task.id]: !prev[task.id],
@@ -136,9 +129,9 @@ function TaskAccordion(props) {
           <Grid item><Typography style={{paddingRight:"1rem"}} >{name}</Typography></Grid>
           <Grid item>
             <Chip style={{margin:"auto"}} label={tasks.length+" Tasks"} 
-            color={getStatusForAccordionType()==2?"success":
-                   getStatusForAccordionType()==1?"info":
-                   getStatusForAccordionType()==0?"warning":"error"} 
+            color={getStatusForAccordionType()==="2"?"success":
+                   getStatusForAccordionType()==="1"?"info":
+                   getStatusForAccordionType()==="0"?"warning":"error"} 
               variant={theme.palette.mode==='dark'?"outlined":"filled"}>
                 </Chip></Grid>
           </Grid>
@@ -183,7 +176,7 @@ function TaskAccordion(props) {
               open={showInfo[task.id] || false}
               setOpen={handleShowInfo}
             ></TaskModal>
-            {updateTaskInput===task?<CreateTask title={"Update"} openModal={showUpdate} updateTask={()=>{setShowUpdate(false);updateTask();}} taskInput={updateTaskInput}></CreateTask>:<div></div>}
+              {updateTaskInput===task?<CreateTask title={"Update"} openModal={showUpdate} setOpenModal={setShowUpdate} updateTask={()=>{setShowUpdate(false);updateTask();}} taskInput={{...updateTaskInput,plannedCompletionDate:dayjs(task.plannedCompletionDate).format('YYYY-MM-DD HH:mm:ss')}}></CreateTask>:<div></div>}
           </AccordionDetails>
         ))}
       </Accordion>
@@ -198,9 +191,9 @@ function TaskAccordion(props) {
           vertical: 'bottom',
           horizontal: 'left',
         }} onClose={()=>setPopOverAnchor(null)}>
-            {Object.entries(states).filter((entry,index)=>null===popoverTask?entry[1]!==name:entry[0]!=popoverTask.status).map((entry,index)=><MenuList key={index}><MenuItem onClick={()=>updateTaskItem(popoverTask,entry[0])}>Mark : {entry[1]}</MenuItem></MenuList>)}
+            {Object.entries(states).filter((entry,index)=>null===popoverTask?entry[1]!==name:entry[0]!==popoverTask.status).map((entry,index)=><MenuList key={index}><MenuItem onClick={()=>updateTaskItem(popoverTask,entry[0])}>Mark : {entry[1]}</MenuItem></MenuList>)}
         </Popover>
-      <Snackbar color="inherit" onClose={()=>setSnackOpen(false)} autoHideDuration={2000} open={snackOpen} message={snackMessage} action={<div><IconButton onClick={()=>setSnackOpen(false)} size="small" color="inherit"><CloseOutlined font="small" color="inherit"/></IconButton></div>}></Snackbar>
+      <Snackbar color="inherit" onClose={()=>setSnackOpen(false)} autoHideDuration={3000} open={snackOpen} message={snackMessage} action={<div><IconButton onClick={()=>setSnackOpen(false)} size="small" color="inherit"><CloseOutlined font="small" color="inherit"/></IconButton></div>}></Snackbar>
     </div>
   );
 }
@@ -234,7 +227,7 @@ function TaskModal(props) {
 
   const formatDate = (input)=>{
     let output = input;
-    if(typeof input == "string" && isNaN(input) 
+    if(typeof input === "string" && isNaN(input) 
     && !isNaN(dayjs(input).$D)&& dayjs(input, 'YYYY-MM-DDTHH:mm:ss.SSSZ', false).isValid()){
         output = dayjs(input).format("DD-MM-YYYY HH:mm");
     }
@@ -272,22 +265,27 @@ function TaskModal(props) {
 }
 
 function CreateTask(props) {
-    const {updateTask,taskInput,title,openModal} = props;
-    const [open,setOpen] = useState(openModal||false);
+    const {updateTask,taskInput,title,openModal: updateTaskModalOpen,setOpenModal:setUpdateTaskModalOpen} = props;
+    const [createTaskModalOpen,setCreateTaskModalOpen] = useState(updateTaskModalOpen||false);
     const [openSnack,setOpenSnack] = useState(false);
     const [openBackdrop,setOpenBackdrop] = useState(false);
     const fields = {"Task Name":"task","Task Description":"description","Category":"category"};
     const [task,setTask] = useState(()=>({...taskInput}));
     const [snackMessage,setSnackMessage] = useState("Default Message");
 
-    const createTaskFunc = (task)=>{
+    const showCreateTask = (show)=>{
+      title!=="Update"?setCreateTaskModalOpen(show):setUpdateTaskModalOpen(show);
+    }
+
+    const createTaskFunc = (task,keepOpen)=>{
         setOpenBackdrop(true);
         let creationCall = title!=="Update"?createTask(task):updateTaskToDo(task);
         creationCall.then((response)=>{
             updateTask();
             setSnackMessage("Task Created Successfully. ID : "+response.data.id);
             setOpenSnack(true);
-            setOpen(false);
+            if(!keepOpen)
+            showCreateTask(false);
         }).catch((error)=>{
             setSnackMessage("Error Creating Task : "+error.message);
             setOpenSnack(true);
@@ -314,11 +312,11 @@ function CreateTask(props) {
         style={{ position: "fixed", right: "1rem", bottom: "1rem" }}
         color="info"
         aria-label="add" 
-        onClick={()=>setOpen(true)}
+        onClick={()=>setCreateTaskModalOpen(true)}
       >
         <AddIcon />
       </Fab>:<div></div>}
-    <Dialog open={open} onClose={()=>setOpen(false)} maxWidth={'lg'} >
+    <Dialog open={title!=="Update"?createTaskModalOpen:updateTaskModalOpen} onClose={()=>showCreateTask(false)} maxWidth={'lg'} >
         <DialogTitle >
             {title} Task
         </DialogTitle>
@@ -328,8 +326,8 @@ function CreateTask(props) {
             {Object.entries(fields).map((entry,index)=>
                 <Grid item key={index}>
                     <TextField onKeyDown={(event)=>{
-                if(event.key=='Enter')
-                    createTaskFunc(task)
+                if(event.key==='Enter')
+                    createTaskFunc(task,true)
             }}  onChange={handleChange} name={fields[entry[0]]} style={{width:"50%",minWidth:"25rem",maxWidth:"80vw"}} label={entry[0]} value={task[fields[entry[0]]]} variant="outlined" color="primary" ></TextField>
                 </Grid>
             )} 
@@ -348,8 +346,8 @@ function CreateTask(props) {
             </Box>
         </DialogContent>
         <DialogActions>
-            <Button onClick={()=>setOpen(false)}>Cancel</Button>
-            <Button onClick={()=>createTaskFunc(task)}>{title} Task</Button>
+            <Button onClick={()=>showCreateTask(false)}>Cancel</Button>
+            <Button onClick={()=>createTaskFunc(task,false)}>{title} Task</Button>
         </DialogActions>
     </Dialog>
 
@@ -417,8 +415,6 @@ export default function TaskPage() {
           updateTask={updateTask}
         ></TaskAccordion>
       ))}
-      {console.log(tasks[8]?tasks[8].plannedCompletionDate:'')}
-      {console.log(tasks[8]?dayjs(tasks[8].plannedCompletionDate).isAfter(dayjs(new Date())):'')}
       {tasks.filter((task) => task.status !== 2)
           .filter((task) => dayjs(task.plannedCompletionDate).isAfter(dayjs(new Date()))).length>0?
           <TaskAccordion

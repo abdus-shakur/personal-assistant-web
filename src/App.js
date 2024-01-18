@@ -3,6 +3,9 @@ import React from 'react';
 import './App.css';
 import PageHolder from './pages/PageHolder';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AuthPage from './pages/AuthPage';
+import "bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
 
@@ -23,10 +26,19 @@ function App() {
     },
   });
 
+
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <PageHolder changeTheme={()=>setThemePreference(!darkThemed)}></PageHolder>
+      <BrowserRouter>
+        <Routes>
+          
+          <Route exact path="/app" element={<PageHolder changeTheme={()=>setThemePreference(!darkThemed)}></PageHolder>}></Route>
+          <Route exact path="*" element={<AuthPage></AuthPage>}></Route>
+        </Routes>
+      </BrowserRouter>
+      
     </ThemeProvider>
   );
 }

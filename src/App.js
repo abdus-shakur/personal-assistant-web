@@ -36,9 +36,9 @@ function App() {
       <CssBaseline />
       <HashRouter>
         <Routes >
+        <Route exact path="/*" element={<AuthPage></AuthPage>}></Route>
+          <Route exact path="/app" element={<PageHolder changeTheme={()=>setThemePreference(!darkThemed)}></PageHolder>}></Route>
           
-          <Route exact path="/*" element={<PageHolder changeTheme={()=>setThemePreference(!darkThemed)}></PageHolder>}></Route>
-          <Route exact path="/login" element={<AuthPage></AuthPage>}></Route>
         </Routes>
       </HashRouter>
       

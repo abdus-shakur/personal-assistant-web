@@ -1,6 +1,7 @@
 import axios from 'axios';
+import * as ENV from '../config/env';
 
-const default_url = "http://192.168.0.2:8081";
+const default_url = ENV.DATA_MANAGER_SERVICE_URL;
 
 export default function GetAxios(){
     return axios.create({baseURL:default_url});

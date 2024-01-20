@@ -387,16 +387,19 @@ export default function TaskPage() {
   ]);
 
   const [snackDetails,setSnackDetails] = useState({open:false,message:""})
+  const [loading,setLoading] = useState(false)
   useEffect(() => {
     getAllTasks();
   }, []);
   function getAllTasks() {
+    setLoading(true);
     GetTasks()
       .then((response)=>{
           setTasks(() => [...response.data])
       }).catch((error)=>{
           setSnackDetails((prev)=>({...prev,open:true,message:"Error getting Tasks : "+error.message}))
       }).finally(()=>{
+        setLoading(false);
       });
   }
 
@@ -427,6 +430,13 @@ export default function TaskPage() {
       
       <CreateTask title={"Create"} updateTask={updateTask} taskInput={{task:"",description:"",status:"",category:"",plannedCompletionDate:dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')}} ></CreateTask>
       <Snackbar color="inherit" open={snackDetails.open} anchorOrigin={{horizontal:"left",vertical:"bottom"}} message={snackDetails.message} autoHideDuration={3000} action={<div><IconButton color="inherit" onClick={()=>setSnackDetails((prev)=>({...prev,open:!snackDetails.open}))}><Close/></IconButton></div>}></Snackbar>
+      <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.appBar - 1 }}
+        open={loading}
+        onClick={()=>setLoading(false)}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </React.Fragment>
   );
 }

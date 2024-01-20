@@ -10,13 +10,13 @@ import ApplicationManagement from "./ApplicationManagement";
 import UrlPage from "./UrlPage";
 import CategorizedContacts from "./CategorizedContacts";
 import VCardContactViewPage from "./VCardContactViewPage";
-import EmailPage from "./EmailPage";
+import Email from "./GoogleIntegrations/Email/Email";
 import EmailManager from "./EmailManager";
 
 export default function PageHolder(props) {
   const {changeTheme} = props;
-  const [title, setTitle] = useState("Task");
-  const [subTitle, setSubTitle] = useState("To Do List");
+  const [title, setTitle] = useState("Google Integrations");
+  const [subTitle, setSubTitle] = useState("Email");
   const [drawerOpen, setDrawerOpen] = useState(false);
   var menus = {
     Home :{
@@ -43,8 +43,8 @@ export default function PageHolder(props) {
       "Urls":<UrlPage></UrlPage>
     },
     "Google Integrations":{
-      "default":<EmailPage></EmailPage>,
-      "Email":<EmailPage></EmailPage>
+      "default":<Email></Email>,
+      "Email":<Email></Email>
     }
 
   };

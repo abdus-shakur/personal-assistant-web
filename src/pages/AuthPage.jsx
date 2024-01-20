@@ -10,7 +10,7 @@ export default function (props) {
 
   if (authMode === "signin") {
     return (
-      <div className="Auth-form-container">
+      <div className="Auth-form-container" style={{border:'2px solid',borderRadius:'0.8rem',padding:'2rem',maxWidth:'25rem',margin:'auto',marginTop:'1rem'}}>
         <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
@@ -45,7 +45,7 @@ export default function (props) {
               Forgot <a href="#">password?</a>
             </p>
             
-              <form action="#app">
+              <form action="app">
               <div className="d-grid gap-2 mt-3">
               <button type="submit" className="btn btn-primary" >
                 Bypass Login

@@ -34,13 +34,13 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <Notifications/>
       <CssBaseline />
-      <HashRouter>
+      <BrowserRouter>
         <Routes >
         <Route exact path="/*" element={<AuthPage></AuthPage>}></Route>
           <Route exact path="/app" element={<PageHolder changeTheme={()=>setThemePreference(!darkThemed)}></PageHolder>}></Route>
           
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
       
     </ThemeProvider>
   );

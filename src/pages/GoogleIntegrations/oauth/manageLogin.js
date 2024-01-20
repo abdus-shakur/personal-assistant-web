@@ -1,5 +1,7 @@
 import * as ENV from "../../../config/env";
+
 export const TOKEN_NAME = "google_oauth_bearer";
+export const EXPIRY_TIME = "expiry_time";
 
 
 export default function oauthSignIn() {
@@ -42,16 +44,16 @@ export function retrieveOAuthBearerToken() {
   const type = queryParameters.get("access_token");
   localStorage.setItem(TOKEN_NAME, type);
   window.location.hash = '';
-  localStorage.setItem("expiry_time",+new Date()+(new Number(queryParameters.get("expires_in"))*1000));
+  localStorage.setItem(EXPIRY_TIME,+new Date()+(new Number(queryParameters.get("expires_in"))*1000));
   return type;
 }
 
 export function getAuthToken(){
-  if(new Number(localStorage.getItem("expiry_time"))<new Date().now){
+  if(new Number(localStorage.getItem(EXPIRY_TIME))<new Date().now){
     localStorage.setItem(TOKEN_NAME,null);
     return null;
   }
-  console.log('Time Remaining : '+(localStorage.getItem("expiry_time")-(+new Date()))/1000);
+  console.log('Time Remaining : '+(localStorage.getItem(EXPIRY_TIME)-(+new Date()))/1000);
   return  localStorage.getItem(TOKEN_NAME);
 }
 

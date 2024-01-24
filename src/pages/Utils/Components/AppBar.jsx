@@ -95,6 +95,45 @@ export default function PrimarySearchAppBar(prop) {
     });
   }
 
+  const appMenu = [
+    {
+      name:"Messages",
+      action:()=>console.log('Messages Clicked'),
+      badgeCount:4,
+      icon:<MailIcon/>
+    },
+    {
+      name:"Notification",
+      action:()=>console.log('Notification Clicked'),
+      badgeCount:4,
+      icon:<NotificationsIcon/>
+    },
+    {
+      name:"Profile",
+      action:[handleMenuClose,handleProfileMenuOpen],
+      badgeCount:0,
+      icon:<AccountCircle/>
+    },
+    {
+      name:"My Account",
+      action:handleMenuClose,
+      badgeCount:0,
+      icon:<AccountCircle/>
+    },
+    {
+      name:"Toggle Theme",
+      action:[changeTheme],
+      badgeCount:0,
+      icon:<DarkMode/>
+    },
+    {
+      name:"Logout",
+      action:[logout],
+      badgeCount:0,
+      icon:<LogoutOutlined/>
+    }
+  ]
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu

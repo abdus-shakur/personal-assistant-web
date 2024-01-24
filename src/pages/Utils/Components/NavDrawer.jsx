@@ -68,7 +68,7 @@ export default function TemporaryDrawer(prop) {
           <ListItem key={menu.name} disablePadding >
             <ListItemButton onClick={()=>expandMenuItem(menu)}>
               <ListItemIcon >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {menu.icon}
               </ListItemIcon>
               <ListItemText key={menu.name} primary={menu.name} />
               {menuExpanded[menu.name] ? <ExpandLess /> : <ExpandMore />}

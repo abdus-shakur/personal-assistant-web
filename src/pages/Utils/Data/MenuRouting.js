@@ -1,3 +1,4 @@
+import { AccountBalanceWallet, Apps, Google, Home, PeopleAlt, Task } from "@mui/icons-material";
 import ApplicationManagement from "../../ApplicationManager/ApplicationManagement";
 import EmailManager from "../../ApplicationManager/EmailManager";
 import UrlPage from "../../ApplicationManager/UrlPage";
@@ -18,6 +19,7 @@ export const MENUS = [
         path:"home",
         menuColor:"#5F0F40",
         target:<HomePage/>,
+        icon:<Home/>,
         subMenus:[
             {
                 name:"Dashboard",
@@ -31,6 +33,7 @@ export const MENUS = [
         path:"task",
         menuColor:"#B31312",
         target:<TaskPage/>,
+        icon:<Task/>,
         subMenus:[
             {
                 name:"To Do List",
@@ -44,6 +47,7 @@ export const MENUS = [
         path:"finance",
         menuColor:"#392467",
         target:<FinancePage/>,
+        icon:<AccountBalanceWallet/>,
         subMenus:[
             {
                 name:"Income Tax",
@@ -57,6 +61,7 @@ export const MENUS = [
         path:"app-manager",
         menuColor:"#392467",
         target:<ApplicationManagement/>,
+        icon:<Apps/>,
         subMenus:[
             {
                 name:"Email Manager",
@@ -75,6 +80,7 @@ export const MENUS = [
         path:"relations-manager",
         menuColor:"#29ADB2",
         target:<CircleManagementPage/>,
+        icon:<PeopleAlt/>,
         subMenus:[
             {
                 name:"Birthday Reminder",
@@ -98,6 +104,7 @@ export const MENUS = [
         path:"google-integrations",
         menuColor:"#29ADB2",
         target:<Email/>,
+        icon:<Google/>,
         subMenus:[
             {
                 name:"Email",

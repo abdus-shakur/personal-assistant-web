@@ -1,4 +1,4 @@
-import React, { createRef } from "react";
+import React, { createRef, useEffect } from "react";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import AuthPage from "./AuthPage";
 import PrimarySearchAppBar from "./Utils/Components/AppBar";
@@ -18,6 +18,14 @@ export default function PageRouter(props){
 
     function PageWithAppBar(props){
         const {menu,subMenu,changeTheme} = props;
+        
+        useEffect(()=>{
+            document.getElementsByName('theme-color')[0].setAttribute('content',menu.menuColor);
+            return ()=>{
+                document.getElementsByName('theme-color')[0].setAttribute('content','#000000');
+            }
+        },[menu])
+        
         return (<React.Fragment>
             <PrimarySearchAppBar
                 title={`${menu.name} - ${subMenu.name}`}

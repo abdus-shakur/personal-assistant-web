@@ -1,4 +1,4 @@
-import GetAxios from "../../axios-default";
+import GetAxios from "../../../Utils/Service/axios-default";
 
 export function GetBasicVcards(){
     return GetAxios().get("/vcard/basic-response");

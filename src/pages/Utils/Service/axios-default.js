@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as ENV from '../config/env';
+import * as ENV from '../../../config/env';
 
 const default_url = ENV.DATA_MANAGER_SERVICE_URL;
 

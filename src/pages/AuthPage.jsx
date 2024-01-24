@@ -1,8 +1,11 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
-export default function (props) {
-  const {} = props;
+export default function AuthPage(props) {
+  const {gotoLandingPage} = props;
   let [authMode, setAuthMode] = useState("signin")
+
+  const navigate = useNavigate();
 
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
@@ -45,13 +48,11 @@ export default function (props) {
               Forgot <a href="#">password?</a>
             </p>
             
-              <form action="app">
               <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary" >
+              <button onClick={()=>navigate(gotoLandingPage)} className="btn btn-primary" >
                 Bypass Login
               </button>
               </div>
-              </form>
            
           </div>
         </form>

@@ -1,6 +1,6 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
-import VCardTable2 from '../components/RelationManager/VCardTable2'
+import VCardTable2 from '../RelationsManager/Components/VCardTable2'
 
 export default function EmailManager() {
   return (

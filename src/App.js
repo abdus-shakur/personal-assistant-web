@@ -1,13 +1,10 @@
-import logo from './logo.svg';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
 import './App.css';
-import PageHolder from './pages/PageHolder';
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
-import AuthPage from './pages/AuthPage';
-import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Notifications } from 'react-push-notification';
+import PageRouter from './pages/PageRouter';
 
 function App() {
 
@@ -34,14 +31,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
       <Notifications/>
       <CssBaseline />
-      <BrowserRouter>
-        <Routes >
-        <Route exact path="/*" element={<AuthPage></AuthPage>}></Route>
-          <Route exact path="/app" element={<PageHolder changeTheme={()=>setThemePreference(!darkThemed)}></PageHolder>}></Route>
-          
-        </Routes>
-      </BrowserRouter>
-      
+      <PageRouter darkThemed={darkThemed} changeTheme={()=>setThemePreference(!darkThemed)} setThemePreference={()=>setThemePreference(!darkThemed)} />
     </ThemeProvider>
   );
 }

@@ -1,6 +1,6 @@
 import axios from "axios";
-import * as googleLogin from  '../../oauth/manageLogin.js' ;
-import * as ENV from "../../../../config/env.js";
+import * as googleLogin from  './oauth/manageLogin.js' ;
+import * as ENV from "../../../config/env.js";
 
 const baseURL = ENV.GOOGLE_SERVICE_URL;
 // const baseURL = "http://localhost:8080"

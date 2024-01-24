@@ -1,22 +1,23 @@
 import { useState } from "react";
-import AppBar from "../components/AppBar";
-import HomePage from "./HomePage";
-import TaskPage from "./TaskPage";
-import FinancePage from "./FinancePage";
-import ContactViewPage from "./ContactViewPage";
-import CircleManagementPage from "./CircleManagementPage";
-import NavDrawer from "../components/NavDrawer";
-import ApplicationManagement from "./ApplicationManagement";
-import UrlPage from "./UrlPage";
-import CategorizedContacts from "./CategorizedContacts";
-import VCardContactViewPage from "./VCardContactViewPage";
+import AppBar from "./Utils/Components/AppBar";
+import HomePage from "./Home/HomePage";
+import TaskPage from "./Task/TaskPage";
+import FinancePage from "./Finance/FinancePage";
+import ContactViewPage from "./RelationsManager/ContactViewPage";
+import CircleManagementPage from "./RelationsManager/CircleManagementPage";
+import NavDrawer from "./Utils/Components/NavDrawer";
+import ApplicationManagement from "./ApplicationManager/ApplicationManagement";
+import UrlPage from "./ApplicationManager/UrlPage";
+import CategorizedContacts from "./RelationsManager/CategorizedContacts";
+import VCardContactViewPage from "./RelationsManager/VCardContactViewPage";
 import Email from "./GoogleIntegrations/Email/Email";
-import EmailManager from "./EmailManager";
+import EmailManager from "./ApplicationManager/EmailManager";
+import AuthManagement from "./GoogleIntegrations/AuthManagement/AuthManagement";
 
 export default function PageHolder(props) {
-  const {changeTheme} = props;
-  const [title, setTitle] = useState("Google Integrations");
-  const [subTitle, setSubTitle] = useState("Email");
+  const {changeTheme,pageName,subPageName} = props;
+  const [title, setTitle] = useState(pageName||"Google Integrations");
+  const [subTitle, setSubTitle] = useState(subPageName||"Auth Management");
   const [drawerOpen, setDrawerOpen] = useState(false);
   var menus = {
     Home :{
@@ -44,7 +45,8 @@ export default function PageHolder(props) {
     },
     "Google Integrations":{
       "default":<Email></Email>,
-      "Email":<Email></Email>
+      "Email":<Email></Email>,
+      "Auth Management":<AuthManagement></AuthManagement>
     }
 
   };
@@ -71,7 +73,7 @@ export default function PageHolder(props) {
     },
     "Google Integrations":{
       color: "#29ADB2",
-      subMenu: ["Email"],
+      subMenu: ["Email","Auth Management"],
     }
   };
 

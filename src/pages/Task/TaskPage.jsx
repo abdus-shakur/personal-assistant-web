@@ -44,7 +44,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
-import GetTasks, { createTask, deleteTask ,updateTask as updateTaskToDo} from "../service/Tasks/GetData";
+import GetTasks, { createTask, deleteTask ,updateTask as updateTaskToDo} from "./Service/GetData";
 import { LocalizationProvider, MobileDateTimePicker } from "@mui/x-date-pickers";
 import { useTheme } from "@mui/material";
 

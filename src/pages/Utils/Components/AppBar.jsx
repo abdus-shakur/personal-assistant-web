@@ -1,21 +1,24 @@
-import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
-import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
+import { DarkMode, LogoutOutlined } from "@mui/icons-material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+import MenuIcon from "@mui/icons-material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
-import { ChangeCircle, DarkMode } from "@mui/icons-material";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import SearchIcon from "@mui/icons-material/Search";
+import AppBar from "@mui/material/AppBar";
+import Badge from "@mui/material/Badge";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import InputBase from "@mui/material/InputBase";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { alpha, styled } from "@mui/material/styles";
+import * as React from "react";
+import { logoutUser } from "../Service/auth";
+import { useNavigate } from "react-router-dom";
+import * as URLS from "../Data/UrlConstants";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -82,6 +85,16 @@ export default function PrimarySearchAppBar(prop) {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const navigate = useNavigate();
+
+  function logout(){
+    logoutUser().then(()=>{
+      navigate(URLS.LOGOUT);
+    }).catch(()=>{
+      navigate(URLS.ERROR_URL);
+    });
+  }
+
   const menuId = "primary-search-account-menu";
   const renderMenu = (
     <Menu
@@ -102,6 +115,7 @@ export default function PrimarySearchAppBar(prop) {
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
       <MenuItem onClick={changeTheme}>Toggle Theme</MenuItem>
+      <MenuItem onClick={logout}>Logout</MenuItem>
     </Menu>
   );
 
@@ -128,7 +142,7 @@ export default function PrimarySearchAppBar(prop) {
             <MailIcon />
           </Badge>
         </IconButton>
-        <p>Messages</p>
+        <Typography variant="p">Messages</Typography>
       </MenuItem>
       <MenuItem>
         <IconButton
@@ -140,7 +154,7 @@ export default function PrimarySearchAppBar(prop) {
             <NotificationsIcon />
           </Badge>
         </IconButton>
-        <p>Notifications</p>
+        <Typography variant="p">Notifications</Typography>
       </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
@@ -152,7 +166,7 @@ export default function PrimarySearchAppBar(prop) {
         >
           <AccountCircle />
         </IconButton>
-        <p>Profile</p>
+        <Typography variant="p">Profile</Typography>
       </MenuItem>
       <MenuItem onClick={changeTheme}>
         <IconButton
@@ -164,15 +178,28 @@ export default function PrimarySearchAppBar(prop) {
         >
           <DarkMode />
         </IconButton>
-        <p>Toggle Theme</p>
+        <Typography variant="p">Toggle Theme</Typography>
       </MenuItem>
+      <MenuItem onClick={logout}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <LogoutOutlined />
+        </IconButton>
+        <Typography variant="p">Logout</Typography>
+      </MenuItem>
+      
       
     </Menu>
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ bgcolor: prop.color}} >
+    <Box sx={{ flexGrow: 1 }} >
+      <AppBar position="sticky" sx={{ bgcolor: prop.color}} >
         <Toolbar>
           <IconButton
             size="large"

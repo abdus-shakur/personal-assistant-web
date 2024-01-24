@@ -1,6 +1,7 @@
 import {
   Avatar,
   Backdrop,
+  Button,
   CircularProgress,
   Divider,
   IconButton,
@@ -11,10 +12,11 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
+  useTheme,
 } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import React, { useEffect, useState } from "react";
-import { getEmailList, getEmailDetail, setToken } from "./service/EmailService";
+import { getEmailList, getEmailDetail, setToken } from "../service/EmailService";
 import {
   ArrowBack,
   LoginOutlined,
@@ -24,24 +26,30 @@ import {
   Settings,
 } from "@mui/icons-material";
 
-import oauthSignIn, { logoutGoogle, oauthSignInHandled } from "../oauth/manageLogin";
+import oauthSignIn, { getCodeToken, isUserOAuthAuthenticated, logoutGoogle, oauthSignInHandled } from "../service/oauth/manageLogin";
+import { useNavigate } from "react-router-dom";
+import UnauthorizedOverlay from "../UnauthorizedOverlay";
 
 export default function Email() {
   const [emails, setEmails] = useState([]);
   const [loading, setLoading] = useState(false);
+ 
+  const variantMode = useTheme().palette.mode==='dark'?"contained":"contained";
+  const navigate = useNavigate();
 
   useEffect(() => {
     getEmailMessageAuthenticated();
   }, []);
 
   function getEmailMessageAuthenticated(){
-    oauthSignInHandled()
+    isUserOAuthAuthenticated()
     .then(() => {
+      // setLoggedOutBackdrop(false);
       getEmailMessage();
     })
     .catch((error) => {
       // logoutGoogle();
-      alert("Error in Get Email MEssage Authenticated : "+error)
+      // setLoggedOutBackdrop(true);
     });
   }
 
@@ -151,7 +159,7 @@ export default function Email() {
     <div className="relation-container">
       <CssBaseline />
 
-      <List sx={{ width: "100%", maxWidth: 500, bgcolor: "background.paper" }}>
+      <List sx={{ width: "100%", maxWidth: '100%', bgcolor: "background.paper" }}>
         <ListItem>
           <ListItemButton onClick={getEmailMessageAuthenticated}>
             <ListItemIcon>
@@ -300,6 +308,7 @@ export default function Email() {
       >
         <CircularProgress color="inherit" />
       </Backdrop>
+      <UnauthorizedOverlay/>
     </div>
   );
 }

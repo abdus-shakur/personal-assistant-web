@@ -2,7 +2,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 import { TextField, Grid, Box ,Divider, Typography, Paper} from "@mui/material";
 import { DataObjectSharp } from "@mui/icons-material";
-import { GetVcardById } from "../service/RelationManager/CategorizedContacts/getData";
+import { GetVcardById } from "./Service/CategorizedContacts/getData";
 import { useEffect, useState } from "react";
 
 export default function VCardContactViewPage() {

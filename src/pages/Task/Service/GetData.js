@@ -1,4 +1,4 @@
-import GetAxios from "../axios-default";
+import GetAxios from "../../Utils/Service/axios-default";
 
 export default function GetTasks(){
     return GetAxios().get('/tasks/get-all');

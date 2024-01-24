@@ -23,7 +23,7 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import { useState } from "react";
 import { useEffect } from "react";
-import { GetBasicVcards, GetVcardById } from "../../service/RelationManager/CategorizedContacts/getData";
+import { GetBasicVcards, GetVcardById } from "../Service/CategorizedContacts/getData";
 import { Call, CallOutlined, CallSharp, CallToAction, ContactPageOutlined, MoreVert, SendOutlined } from "@mui/icons-material";
 import { Button, ListItem, ListItemButton, ListItemIcon, ListItemText, MenuItem, Popover } from "@mui/material";
 

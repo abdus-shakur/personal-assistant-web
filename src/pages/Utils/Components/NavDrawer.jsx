@@ -48,7 +48,7 @@ export default function TemporaryDrawer(prop) {
 
 
   function changePage(menu,subMenu,anchor,prop){
-    navigate(menu.path+"/"+subMenu.path,{replace:true});
+    navigate(menu.path+"/"+subMenu.path,{replace:false});
     // history.push(menu.path+"/"+subMenu.path);
     prop.changePage(menu,subMenu);
     toggleDrawer(anchor, false);
@@ -78,8 +78,8 @@ export default function TemporaryDrawer(prop) {
           {menu.subMenus.map((subMenu) => (
           <List component="div" disablePadding key={subMenu.name}>
             <ListItemButton onClick={()=>changePage(menu,subMenu,anchor,prop)}>
-              <ListItemIcon>
-                {/* <InboxIcon /> */}
+              <ListItemIcon outset>
+                <InboxIcon />
               </ListItemIcon>
               <ListItemText outset primary={subMenu.name} />
             </ListItemButton>

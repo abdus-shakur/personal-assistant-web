@@ -78,8 +78,8 @@ export default function TemporaryDrawer(prop) {
           {menu.subMenus.map((subMenu) => (
           <List component="div" disablePadding key={subMenu.name}>
             <ListItemButton onClick={()=>changePage(menu,subMenu,anchor,prop)}>
-              <ListItemIcon outset>
-                <InboxIcon />
+              <ListItemIcon >
+                {/* <InboxIcon /> */}
               </ListItemIcon>
               <ListItemText outset primary={subMenu.name} />
             </ListItemButton>

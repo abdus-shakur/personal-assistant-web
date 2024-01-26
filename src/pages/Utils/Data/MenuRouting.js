@@ -11,6 +11,8 @@ import CircleManagementPage from "../../RelationsManager/CircleManagementPage";
 import ContactViewPage from "../../RelationsManager/ContactViewPage";
 import VCardContactViewPage from "../../RelationsManager/VCardContactViewPage";
 import TaskPage from "../../Task/TaskPage";
+import BirthdayReminder from "../../RelationsManager/BirthdayReminder";
+import Wallet from "../../Finance/Wallet";
 
 
 export const MENUS = [
@@ -50,6 +52,11 @@ export const MENUS = [
         icon:<AccountBalanceWallet/>,
         subMenus:[
             {
+                name:"Wallet",
+                path:"wallet",
+                target:<Wallet/>
+            },
+            {
                 name:"Income Tax",
                 path:"it",
                 target:<FinancePage/>
@@ -85,6 +92,11 @@ export const MENUS = [
             {
                 name:"Birthday Reminder",
                 path:"birthday-reminder",
+                target:<BirthdayReminder/>
+            },
+            {
+                name:"Contacts View Page",
+                path:"contacts-view-page",
                 target:<ContactViewPage/>
             },
             {

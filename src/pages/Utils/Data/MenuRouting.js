@@ -1,4 +1,4 @@
-import { AccountBalanceWallet, Apps, Google, Home, PeopleAlt, Task } from "@mui/icons-material";
+import { AccountBalanceWallet, Apps, Google, Home, PeopleAlt, SdStorage, Task } from "@mui/icons-material";
 import ApplicationManagement from "../../ApplicationManager/ApplicationManagement";
 import EmailManager from "../../ApplicationManager/EmailManager";
 import UrlPage from "../../ApplicationManager/UrlPage";
@@ -13,6 +13,7 @@ import VCardContactViewPage from "../../RelationsManager/VCardContactViewPage";
 import TaskPage from "../../Task/TaskPage";
 import BirthdayReminder from "../../RelationsManager/BirthdayReminder";
 import Wallet from "../../Finance/Wallet";
+import ContactsManagement from "../../DataManagement/ContactsManagement";
 
 
 export const MENUS = [
@@ -127,6 +128,20 @@ export const MENUS = [
                 name:"Auth Management",
                 path:"auth-management",
                 target:<AuthManagement/>
+            }
+        ]
+    },
+    {
+        name:"Data Mangement",
+        path:"data-management",
+        menuColor:"#A94438",
+        target:<Email/>,
+        icon:<SdStorage/>,
+        subMenus:[
+            {
+                name:"Contacts Management",
+                path:"contacts",
+                target:<ContactsManagement/>
             }
         ]
     }

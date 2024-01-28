@@ -40,3 +40,18 @@
 .relation-container{
   margin : 1rem;
 }
+
+
+.upload-button{
+  border: '1px solid #ccc';
+  display: 'inline-block';
+  padding: '0.5rem';
+  cursor: 'pointer';
+  border-radius:'0.3rem';
+  border:'none';
+}
+
+.upload-button:hover{
+  color:'red';
+  background-color: 'red';
+}

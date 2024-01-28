@@ -1,9 +1,25 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
+import { loginDataManagerService } from "./Utils/Service/auth";
+
 export default function AuthPage(props) {
   const {gotoLandingPage} = props;
   let [authMode, setAuthMode] = useState("signin")
+  const [cred,setCred] = useState({email:'',password:''});
+
+  const handleCredChange = (event)=>{
+    setCred((prev)=>({
+      ...prev,
+      [event.target.name]:event.target.value
+    }))
+  }
+
+  const handleSubmit = (event)=>{
+    event.preventDefault();
+    loginDataManagerService(cred.email,cred.password);
+    
+  }
 
   const navigate = useNavigate();
 
@@ -13,7 +29,8 @@ export default function AuthPage(props) {
 
   if (authMode === "signin") {
     return (
-      <div className="Auth-form-container" style={{border:'2px solid',borderRadius:'0.8rem',padding:'2rem',maxWidth:'25rem',margin:'auto',marginTop:'1rem'}}>
+      <div className="container" >
+      <div className="Auth-form-container" style={{border:'2px solid',borderRadius:'0.8rem',padding:'2rem',maxWidth:'25rem',margin:'auto',marginTop:'1rem',height:'100%'}}>
         <form className="Auth-form">
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
@@ -26,21 +43,27 @@ export default function AuthPage(props) {
             <div className="form-group mt-3">
               <label>Email address</label>
               <input
-                type="email"
+                type="username"
                 className="form-control mt-1"
                 placeholder="Enter email"
+                name="email"
+                onChange={handleCredChange}
+                value={cred.email}
               />
             </div>
             <div className="form-group mt-3">
               <label>Password</label>
               <input
                 type="password"
+                name="password"
                 className="form-control mt-1"
                 placeholder="Enter password"
+                onChange={handleCredChange}
+                value={cred.password}
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
                 Submit
               </button>
             </div>
@@ -56,6 +79,7 @@ export default function AuthPage(props) {
            
           </div>
         </form>
+      </div>
       </div>
     )
   }

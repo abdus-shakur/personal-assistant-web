@@ -6,7 +6,7 @@ export default function CategorizedContacts() {
   return (
     <div>
       <CssBaseline />
-      <Box sx={{ flexGrow: 1, padding: "2rem" }}>
+      <Box sx={{ flexGrow: 1 }}>
         <Grid container direction="column" rowSpacing={1} columnSpacing={1}>
           <ContactsSearchTable></ContactsSearchTable>
         </Grid>

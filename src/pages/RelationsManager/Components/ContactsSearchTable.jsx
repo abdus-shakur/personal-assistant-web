@@ -341,7 +341,7 @@ export default function ContactsSearchTable() {
     <Box sx={{ width: "100%" }}>
       <Paper sx={{ width: "100%", mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} handlePopClick={handlePopClick}/>
-        <TableContainer  sx={{ maxHeight: "70vh" }}>
+        <TableContainer  sx={{ maxHeight: "80vh" }}>
           <Table 
             stickyHeader
             sx={{ minWidth: 750 }}
@@ -450,10 +450,6 @@ export default function ContactsSearchTable() {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
-      <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
-        label="Dense padding"
-      />
     </Box>
   );
 }

@@ -4,22 +4,22 @@ import * as Constants from '../Data/Constants'
 
 const default_url = ENV.DATA_MANAGER_SERVICE_URL;
 
-const axiosObject = axios.create({ baseURL: default_url })
-
-export default function GetAxios() {
+function getAuthorizationHeader() {
     let username = localStorage.getItem(Constants.USERNAME);
     let password = localStorage.getItem(Constants.PASSWORD);
-
-    let axiosObj = axios.create({
-        baseURL: default_url,
-        headers: {
+    if (null !== username && null !== password) {
+        return {
             Authorization: Constants.BASIC + btoa(username + ":" + password)
         }
-    });
-
-    return axiosObj;
+    } else {
+        return {};
+    }
 }
 
-// export function GetAxios(url){
-//     return axios.create({baseURL:url});
-// }
+export default function GetAxios() {
+    let axiosObj = axios.create({
+        baseURL: default_url,
+        headers: getAuthorizationHeader()
+    });
+    return axiosObj;
+}

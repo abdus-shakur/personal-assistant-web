@@ -99,6 +99,7 @@ function TaskAccordion(props) {
 
   const updateTaskItem = (task,status)=>{
     task.status = status;
+    task.plannedCompletionDate = dayjs(task.plannedCompletionDate).format('YYYY-MM-DD HH:mm:ss');
     setOpenBackdrop(true);
     updateTaskToDo(task).then((response)=>{
         updateTask();
@@ -428,7 +429,7 @@ export default function TaskPage() {
           updateTask={updateTask}
         ></TaskAccordion>:<div></div>}
       
-      <CreateTask title={"Create"} updateTask={updateTask} taskInput={{task:"",description:"",status:"",category:"",plannedCompletionDate:dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')}} ></CreateTask>
+      <CreateTask title={"Create"} updateTask={updateTask} taskInput={{task:"",description:"",status:0,category:"",plannedCompletionDate:dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss')}} ></CreateTask>
       <Snackbar color="inherit" open={snackDetails.open} anchorOrigin={{horizontal:"left",vertical:"bottom"}} message={snackDetails.message} autoHideDuration={3000} action={<div><IconButton color="inherit" onClick={()=>setSnackDetails((prev)=>({...prev,open:!snackDetails.open}))}><Close/></IconButton></div>}></Snackbar>
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.appBar - 1 }}

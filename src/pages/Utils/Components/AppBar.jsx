@@ -238,7 +238,7 @@ export default function PrimarySearchAppBar(prop) {
 
   return (
     <Box sx={{ flexGrow: 1 }} >
-      <AppBar position="fixed" sx={{ bgcolor: prop.color}} >
+      <AppBar position="fixed" sx={{left:0,top:0, bgcolor: prop.color}} >
         <Toolbar>
           <IconButton
             size="large"
@@ -313,6 +313,7 @@ export default function PrimarySearchAppBar(prop) {
           </Box>
         </Toolbar>
       </AppBar>
+      <div style={{height:'64px',width:'100%'}}></div>
       {renderMobileMenu}
       {renderMenu}
     </Box>

@@ -33,7 +33,7 @@ export default function PageRouter(props){
                 color={menu.menuColor}
                 changeTheme={changeTheme}
             ></PrimarySearchAppBar>
-            <div style={{height:'64px',width:'100%'}}></div>
+            
             {subMenu.target}
         </React.Fragment>)
     }
@@ -41,19 +41,20 @@ export default function PageRouter(props){
     return <>
     
     
-    <BrowserRouter>
+    <BrowserRouter >
 
       <Routes >
       
-        <Route exact path={URLS.WILD_CARD_BASE_URL} element={<AuthPage gotoLandingPage={URLS.APP_LANDING_PAGE}/>}/>
+        
         <Route path={URLS.APP_RELATIVE_URL} element={<><SideBar ref={switchRef} /><Outlet/></>}>
             {menus.map(menu=>menu.subMenus.map(subMenu=>
             <Route path={`${menu.path}/`} >
-                <Route path={`${subMenu.path}`} element={<PageWithAppBar menu={menu} subMenu={subMenu} changeTheme={changeTheme}/>}/>
+                <Route path={`${subMenu.path}/*`} element={<PageWithAppBar menu={menu} subMenu={subMenu} changeTheme={changeTheme}/>}/>
             </Route>))}
         </Route>
         <Route path={URLS.ERROR_URL} element={<Error/>} errorElement={<React.Fragment>Not Found</React.Fragment>} />
         <Route path={URLS.LOGOUT} element={<Logout/>} errorElement={<React.Fragment>Error Logging out Element</React.Fragment>} />
+        <Route exact path={URLS.WILD_CARD_BASE_URL} element={<AuthPage gotoLandingPage={URLS.APP_LANDING_PAGE}/>}/>
 
       </Routes>
     </BrowserRouter></>

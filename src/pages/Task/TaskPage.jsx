@@ -420,7 +420,7 @@ export default function TaskPage() {
         ></TaskAccordion>
       ))}
       {tasks.filter((task) => task.status !== 2)
-          .filter((task) => dayjs(task.plannedCompletionDate).isAfter(dayjs(new Date()))).length>0?
+          .filter((task) => dayjs(task.plannedCompletionDate).isBefore(dayjs(new Date()))).length>0?
           <TaskAccordion
           defaultOpen={false}
           name={"Past Due"}

@@ -12,7 +12,7 @@ import ContactViewPage from "../../RelationsManager/ContactViewPage";
 import VCardContactViewPage from "../../RelationsManager/VCardContactViewPage";
 import TaskPage from "../../Task/TaskPage";
 import BirthdayReminder from "../../RelationsManager/BirthdayReminder";
-import Wallet from "../../Finance/Wallet";
+import Wallet from "../../Finance/Wallet/Wallet";
 import ContactsManagement from "../../DataManagement/ContactsManagement";
 
 

@@ -1,3 +1,24 @@
+html {
+  font-size: 16px;
+}
+/* @media screen and (max-width: 991px) {
+  html{
+    font-size: 95%;
+  }
+  
+}
+@media screen and (max-width: 767px) {
+  html{
+    font-size: 90%;
+  }
+}
+@media screen and (max-width: 600px) {
+  html{
+    font-size: 85%;
+  }
+ 
+} */
+
 .App {
   text-align: center;
 }
@@ -55,3 +76,68 @@
   color:'red';
   background-color: 'red';
 }
+
+/* width
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+/* Track */
+/* ::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+} */
+ 
+/* Handle */
+/* ::-webkit-scrollbar-thumb {
+  background: #888; 
+} */
+
+/* Handle on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+} */ 
+
+/* .slide-parent{
+  overflow: hidden;
+}
+
+.slide-in{
+  animation-name: slideIn;
+  animation-duration: 0.1s;
+  
+  transition: all 2s;
+}
+
+.slide-out{
+  animation-name: slideOut;
+  animation-duration: 0.1s;
+  
+  transition: all 2s;
+}
+
+@keyframes slideIn {
+  0%{
+    opacity: 0;
+    transform: translateX(50rem);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  
+}
+
+@keyframes slideOut {
+  0%{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  100%{
+    opacity: 0;
+    transform: translateX(-50rem);
+  }
+  
+} */
+

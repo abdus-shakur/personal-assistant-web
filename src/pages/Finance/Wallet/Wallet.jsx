@@ -116,9 +116,8 @@ export function ListRecords(props){
                         <Typography variant="p" fontStyle={"italic"}>"{record.note}"</Typography>
                       </div>}>
                     </ListItemText>
-
                     <ListItemSecondaryAction style={{top:'40%'}}align="right">
-                    <Typography sx={{paddingBottom:'0.2rem', color: (theme)=>theme.palette[record.price>=0?'success':'error'].main}} variant="body2" fontWeight={"bold"} >₹ : {record.price}</Typography>
+                    <Typography sx={{paddingBottom:'0.2rem', color: (theme)=>theme.palette[record.type==='Expense'?'error':'success'].main}} variant="body2" fontWeight={"bold"} >{new Intl.NumberFormat('en-US', {style: 'currency',currency: 'INR',}).format(record.type==='Expense'?-record.price:record.price)}</Typography>
                     <Typography sx={{paddingBottom:'0.2rem'}} variant="body2">{moment(record.dateTime).isValid()&&moment(record.dateTime).format("DD MMM YYYY hh:mm A")}</Typography>
                     {/* <Chip sx={{padding:'0.2rem',fontWeight:'bold'}} variant="outlined" color="success" label="67 Days Overdue"></Chip> */}
                     </ListItemSecondaryAction>
@@ -140,7 +139,7 @@ export function ListRecords(props){
 export function CreateWalletRecord(props){
   
     const [slide,setSlide] = useState(true);
-    
+
     useEffect(()=>{
       setSlide(true)
       getWalletDetails();
@@ -367,7 +366,7 @@ export function CreateWalletRecord(props){
                     obj.target = {};
                     obj.target.name = field.name;
                     obj.target.value = value;
-    ;               handleInputChange(obj);
+                    handleInputChange(obj);
                   }} value={field.value}/>
               </LocalizationProvider>
               :<TextField key={index}

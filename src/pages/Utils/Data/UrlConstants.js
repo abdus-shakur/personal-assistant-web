@@ -13,3 +13,4 @@ export const WALLET_PAYMENT_TYPES = '/wallet/payment/type';
 export const WALLET_DETAILS = '/wallet/details';
 export const WALLET_RECORD = '/wallet/record';
 export const WALLET_RECORD_LIST = '/wallet/record/list';
+export const WALLET_SUGGESTION = '/wallet/suggestion';

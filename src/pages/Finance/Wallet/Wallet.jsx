@@ -1,8 +1,8 @@
-import { Add, Check, Create, List as ListIcon, RecentActorsRounded} from "@mui/icons-material";
-import { Avatar, Badge, Box, Button, Chip, Container, Divider, Fab, FormControl, Icon, InputLabel, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, ListSubheader, MenuItem, OutlinedInput, Select, SpeedDial, SpeedDialAction,  SpeedDialIcon,  TextField, Typography, useTheme } from "@mui/material";
+import { Add, Check, Clear, Create, Error, List as ListIcon, RecentActorsRounded} from "@mui/icons-material";
+import { Autocomplete, Avatar, Backdrop, Badge, Box, Button, Chip, CircularProgress, Container, Divider, Fab, FormControl, Icon, InputLabel, LinearProgress, List, ListItem, ListItemAvatar, ListItemSecondaryAction, ListItemText, ListSubheader, MenuItem, OutlinedInput, Paper, Select, Snackbar, SnackbarContent, SpeedDial, SpeedDialAction,  SpeedDialIcon,  TextField, Toolbar, Typography, useTheme } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { Link, Route, Routes, useLocation, useNavigate, useRoutes } from "react-router-dom";
-import { createRecord, fetchRecordList, fetchWalletDetails, getWalletCatergoryList, getWalletPaymentTypes, getWalletTransactionTypes } from "./Service/wallet-data";
+import { Link, Route, Routes, useLocation, useNavigate, useParams, useRoutes } from "react-router-dom";
+import { createRecord, fetchRecord, fetchRecordList, fetchSuggestion, fetchWalletDetails, getWalletCatergoryList, getWalletPaymentTypes, getWalletTransactionTypes } from "./Service/wallet-data";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import moment from "moment";
 import dayjs from 'dayjs'
@@ -32,6 +32,7 @@ export default function Wallet(){
         <Routes>
             {actions.length>0?<Route index={true} element={(actions[0].element)}/>:<React.Fragment/>}
             {actions.map(action=><Route path={action.path} key={action.path} element={action.element}/>)}
+            <Route path="/record/:id" element={<CreateWalletRecord/>}/>
         </Routes>
         <SpeedDial
             ariaLabel="Wallet Page Navigation Speed Dial"
@@ -54,6 +55,8 @@ export default function Wallet(){
 
 
 export function ListRecords(props){
+
+  const navigate = useNavigate();
 
   const [slide,setSlide] = useState(true);
   useEffect(()=>{
@@ -79,35 +82,26 @@ export function ListRecords(props){
         style: {display: 'flex', alignItems: 'center'},
       }
     let range = "This Year";
-    let records1 = {
-      "First Week":[10, 20, 30,40,50,60],
-      "Second Week":[40, 50, 60]
-    };
+    let spending = records&&records.length>1&&records.filter(record=>record.price!==null&&record.type!=='Expense').map(map=>map.price).reduce((a,b)=>a+b,0)-records.filter(record=>record.price!==null&&record.type==='Expense').map(map=>map.price).reduce((a,b)=>a+b,0)
+    console.log(records&&records.length>1&&records.filter(record=>record.price!==null&&record.type!=='Expense').map(map=>map.price).reduce((prev,value)=>prev+value));
     return (
-      <React.Fragment className="slide-parent">
+      <React.Fragment>
         {/* <div className={"slide-in"}> */}
         <div className={slide?"slide-in":"slide-out"}>
         <Typography variant="h4" align="center">
           Records
         </Typography>
-        {Object.entries(records1).map((record, index) => (
-          <React.Fragment key={index}>
-            { /** Records View Headers */}
+          <React.Fragment>
            
             <ListSubheader sx={{lineHeight:'1rem'}} >
-            <Typography variant="body1">Savings</Typography>
-                        <Typography variant="p" fontStyle={"italic"}>"Savi2"</Typography>
+            <Typography variant="body1">{range}</Typography>
+                        <Typography variant="p" fontStyle={"italic"}>Spending : {new Intl.NumberFormat('en-US', {style: 'currency',currency: 'INR',}).format(spending)}</Typography>
               </ListSubheader>
-            {/* <Divider textAlign="right">
-              <Chip label={record[0]} size="large" />
-            </Divider> */}
-            { /** Records View Menus */}
             <List>
             {records.map((record,index) => (
               <Box key={index}>
-                <ListItem 
-                        style={{paddingRight: '1rem',paddingBottom:'2rem'}}
-                       
+                <ListItem onClick={()=>navigate('../record/'+record.id)}
+                        style={{paddingRight: '10rem',paddingBottom:'2rem'}}
                       >
                     <ListItemAvatar><Avatar alt="Test">{record.note&&record.note[0]}</Avatar></ListItemAvatar>
                     <ListItemText primary={record.subCategory} secondary={
@@ -125,11 +119,8 @@ export function ListRecords(props){
                 
               </Box>
             ))}
-            
             </List>
-            {/* <Divider sx={{borderBottomWidth:'0.2rem'}}textAlign="left" variant="fullWidth"></Divider> */}
           </React.Fragment>
-        ))}
         </div>
       </React.Fragment>
       
@@ -137,67 +128,94 @@ export function ListRecords(props){
 }
 
 export function CreateWalletRecord(props){
+  const [loading,setLoading] = useState(false);
+  const [message,setMessage] = useState({show:false,message:'Default Message'});
+
+  const [suggestions,setSuggestions] = useState([]);
+  const [refreshAutoComplete,setRefreshAutoComplete] = useState(false);
+
+  const refreshAuto = ()=>{
+    setRefreshAutoComplete(!refreshAutoComplete);
+  }
   
     const [slide,setSlide] = useState(true);
+    const param = useParams();
 
     useEffect(()=>{
+      
       setSlide(true)
-      getWalletDetails();
+        getWalletDetails();
+      if(param.id){
+       console.log("Param Id : "+param.id);
+       getRecord(param.id);
+      }
         return ()=>{
           setSlide(false)
         }
       },[])
 
+      const getRecord = (id)=>{
+        setLoading(true);
+        fetchRecord(id).then((response=>{
+          console.log(response.data);
+          setRecordObject({...response.data,dateTime:dayjs(response.data.dateTime)});
+          refreshAuto();
+        })).finally(()=>{
+          setTimeout(()=>setLoading(false),500);
+        });
+      }
+
       const [walletDetail,setWalletDetail] = useState({});
 
       const categoryData = walletDetail.categories||[];
 
-      const [selectedCategory,setSelectedCategory] = useState({
-        mainCategory:0,
-        subCategory:0,
+      const getWalletDetails = ()=>{
+        setLoading(true);
+        fetchWalletDetails().then(response=>{
+          setWalletDetail({...response.data});
+        }).finally(()=>{
+          setTimeout(()=>setLoading(false),500);
+        });
+      }
+
+      const handleCategoryChange = (event)=>{
+        setRecordObject((prev)=>({...prev,[event.target.name]:event.target.value}));
+        if(event.target.name==="mainCategory"){
+          setRecordObject((prev)=>({...prev,subCategoryId:0}));
+        }
+      }
+
+      const defaultData = {
+        price:0.00,
+        dateTime:dayjs(new Date()),
+        categoryId:0,
+        subCategoryId:0,
         type:0,
         paymentType:0,
         account:0,
         status:0,
         label:0
-      });
+      };
 
-
-      const getWalletDetails = ()=>{
-        fetchWalletDetails().then(response=>{
-          setWalletDetail({...response.data});
-        });
-      }
-
-      const handleCategoryChange = (event)=>{
-        setSelectedCategory((prev)=>({...prev,[event.target.name]:event.target.value}));
-        if(event.target.name==="mainCategory"){
-          setSelectedCategory((prev)=>({...prev,subCategory:0}));
-        }
-      }
-
-      const [recordObject,setRecordObject] = useState({
-        price:0.00,
-        date:moment(new Date()).format("YYYY-MM-DD"),
-        time:moment(new Date()).format("HH:mm"),
-        dateTime:dayjs(new Date())
-      });
+      const [recordObject,setRecordObject] = useState(defaultData);
 
     const selectMenus = [
       {
         type:"select",
         label:"Category",
-        name:"mainCategory",
-        values:categoryData.map(data=>data.category),
-        selected:selectedCategory.mainCategory,
+        name:"categoryId",
+        values:categoryData.map(data=>data.name),
+        indexes:categoryData.map(data=>data.id),
+        selected:recordObject.categoryId,
         order:2
       },
       {
         type:"select",
         label:"Sub Category",
-        name:"subCategory",
-        values:categoryData[selectedCategory.mainCategory]&&categoryData[selectedCategory.mainCategory||0].subCategories,
-        selected:selectedCategory.subCategory,
+        name:"subCategoryId",
+        values:categoryData.find(cat=>cat.id===recordObject.categoryId)&&categoryData.find(cat=>cat.id===recordObject.categoryId).subCategory.map(sub=>sub.name),
+        indexes:categoryData.find(cat=>cat.id===recordObject.categoryId)&&categoryData.find(cat=>cat.id===recordObject.categoryId).subCategory.map(data=>data.id),
+        selected:recordObject.subCategoryId,
         order:3
       },
       {
@@ -205,7 +223,7 @@ export function CreateWalletRecord(props){
         label: "Type",
         name:"type",
         values:walletDetail.transactionTypes,
-        selected:selectedCategory.type,
+        selected:recordObject.type,
         order:4
       }
       ,
@@ -214,7 +232,7 @@ export function CreateWalletRecord(props){
         label: "Payent Type",
         name:"paymentType",
         values:walletDetail.paymentTypes,
-        selected:selectedCategory.paymentType,
+        selected:recordObject.paymentType,
         order:10
       }
       ,
@@ -223,7 +241,7 @@ export function CreateWalletRecord(props){
         label: "Account",
         name:"account",
         values:walletDetail.accounts,
-        selected:selectedCategory.account,
+        selected:recordObject.account,
         order:1
       }
       ,
@@ -232,7 +250,7 @@ export function CreateWalletRecord(props){
         label: "Status",
         name:"status",
         values:walletDetail.status,
-        selected:selectedCategory.status,
+        selected:recordObject.status,
         order:12
       }
       ,
@@ -241,7 +259,7 @@ export function CreateWalletRecord(props){
         label: "Label",
         name:"label",
         values:walletDetail.labels,
-        selected:selectedCategory.label,
+        selected:recordObject.label,
         order:6
       }
     ]
@@ -266,14 +284,16 @@ export function CreateWalletRecord(props){
         label:"Note",
         name:"note",
         value:recordObject.note,
-        order:-2
+        order:-2,
+        autoComplete:true
       },
       {
         type:"text",
         label:"Description",
         name:"description",
         value:recordObject.description,
-        order:-1
+        order:-1,
+        autoComplete:true
       },
       {
         type:"number",
@@ -319,14 +339,16 @@ export function CreateWalletRecord(props){
         record.price = recordObject.price;
         record.note = recordObject.note;
         record.description = recordObject.description;
-        record.account = walletDetail.accounts[selectedCategory.account];
-        record.category = categoryData.map(data=>data.category)[selectedCategory.mainCategory];
-        record.subCategory = categoryData[selectedCategory.mainCategory].subCategories[selectedCategory.subCategory];
-        record.type = walletDetail.transactionTypes[selectedCategory.type];
-        record.paymentType = walletDetail.paymentTypes[selectedCategory.paymentType];
-        record.labels = [walletDetail.labels[selectedCategory.label]];
-        record.paymentType = walletDetail.paymentTypes[selectedCategory.paymentType];
-        record.status = walletDetail.status[selectedCategory.status];
+        record.account = walletDetail.accounts[recordObject.account];
+        record.category = categoryData.find(data=>data.id===recordObject.categoryId).name;
+        record.categoryId =  recordObject.categoryId;
+        record.subCategory = categoryData.find(data=>data.id===recordObject.categoryId).subCategory.find(data=>data.id===recordObject.subCategoryId).name;
+        record.subCategoryId = recordObject.subCategoryId;
+        record.type = walletDetail.transactionTypes[recordObject.type];
+        record.paymentType = walletDetail.paymentTypes[recordObject.paymentType];
+        record.labels = [walletDetail.labels[recordObject.label]];
+        record.paymentType = walletDetail.paymentTypes[recordObject.paymentType];
+        record.status = walletDetail.status[recordObject.status];
         record.warranty = recordObject.warranty;
         record.payee = recordObject.payee;
         record.place = recordObject.place;
@@ -335,9 +357,27 @@ export function CreateWalletRecord(props){
         record.attachment = recordObject.attachment;
         record.dateTime = recordObject.dateTime;
         console.log(record);
-        createRecord(record);
-    }
+        setLoading(true);
+        createRecord(record).then((response)=>{
+          setRecordObject(defaultData);
+          setMessage(prev=>({...prev,show:true,message:"Created Record : "+response.data.id}))
+        }).catch((err)=>{
+          setMessage(prev=>({...prev,show:true,message:"Error Creating Record :"+err.error}))
+        }).finally(()=>{
+          setLoading(false);
+        });
         
+    }
+
+   console.log(recordObject)
+   console.log(selectMenus)
+
+    const fetchAutoComplete = (field,text)=>{
+        fetchSuggestion(field,text).then((response=>{
+          setSuggestions([...response.data]);
+        }))
+    };
+
     return (
       <React.Fragment>
         <div className={slide?"slide-in":"slide-out"}>
@@ -346,7 +386,23 @@ export function CreateWalletRecord(props){
             Create Record
           </Typography>
             {consolidatedFields.map((field,index)=>
-              field.type==="select"?
+            field.autoComplete?
+              <Autocomplete options={suggestions} key={refreshAutoComplete+field.name}
+              onChange={(event)=>{handleInputChange(event);fetchAutoComplete(field.name,event.target.value)}}
+              sx={{display:'inline-flex', m: 1,width:'95%',maxWidth:'35rem'}}
+              disablePortal  freeSolo 
+              value={field.value}
+              renderInput={(params)=><TextField key={index}
+               type={field.type}
+             label={field.label}
+             value={field.value|| ""}
+             sx={{}}
+             
+             name={field.name} {...params} onChange={(event)=>{handleInputChange(event);fetchAutoComplete(field.name,event.target.value)}}/>}>
+
+              </Autocomplete>
+              
+              :field.type==="select"?
               <FormControl sx={{ m: 1,width:'95%',maxWidth:'35rem' }} key={field.name}>
                 <InputLabel id={field.name}>{field.label}</InputLabel>
                 <Select
@@ -356,7 +412,7 @@ export function CreateWalletRecord(props){
                     name={field.name}
                     input={<OutlinedInput id={"select-multiple-chip-"+field.name} label={field.label} />}
                   >
-                    {field.values&&field.values.map((data,index)=><MenuItem value={index}>{data}</MenuItem>)}
+                    {field.values&&field.values.map((data,index)=><MenuItem value={field.indexes?field.indexes[index]:index}>{data}</MenuItem>)}
                 </Select>
               </FormControl>
               :field.type=="time"?
@@ -376,9 +432,21 @@ export function CreateWalletRecord(props){
               name={field.name} onChange={handleInputChange}/>
             )}
         </Box>
-        <Fab sx={{position:'fixed',right:'1rem',top:'4.5rem'}} color="success" onClick={handleCreateRecord}>
+        <Paper elevation={10} sx={{position:'fixed',width:'100%',justifyContent:'center',paddingBottom:'1rem',paddingTop:'0.8rem',columnGap:'15%',zIndex:'1',opacity:'1',bottom:0,display:'flex'}}>
+        <Fab color="error" onClick={()=>setRecordObject(defaultData)}>
+          <Clear />
+        </Fab>
+        <Fab  color="success" onClick={handleCreateRecord}>
           <Check />
         </Fab>
+        </Paper>
+        <Backdrop open={loading}> <CircularProgress/></Backdrop>
+        <Snackbar sx={{transform: 'translateY(4rem)'}}
+          anchorOrigin={{vertical: "top", horizontal: "right"}}
+         autoHideDuration={3000} onClose={()=>setMessage((prev)=>({...prev,show:false}))} open={message.show}>
+          <SnackbarContent message={message.message}></SnackbarContent>
+        </Snackbar>
+        <Toolbar/>
         </div>
       </React.Fragment>
     );

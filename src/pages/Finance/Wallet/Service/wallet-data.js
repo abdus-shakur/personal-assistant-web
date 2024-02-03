@@ -24,3 +24,16 @@ export function createRecord(record){
 export function fetchRecordList(record){
     return GetAxios().get(UrlConstants.WALLET_RECORD_LIST);
 }
+
+export function fetchRecord(id){
+    return GetAxios().get(UrlConstants.WALLET_RECORD,{params:{id:id}});
+}
+
+export function fetchSuggestion(field,text){
+    return GetAxios().get(UrlConstants.WALLET_SUGGESTION,{
+        params:{
+            field:field,
+            text:text
+        }
+    });
+}

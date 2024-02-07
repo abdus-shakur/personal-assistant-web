@@ -97,6 +97,11 @@ export default function PrimarySearchAppBar(prop) {
 
   const appMenu = [
     {
+      name:"Search",
+      action:()=>console.log('Messages Clicked'),
+      icon:<SearchIcon/>
+    },
+    {
       name:"Messages",
       action:()=>console.log('Messages Clicked'),
       badgeCount:4,
@@ -157,6 +162,13 @@ export default function PrimarySearchAppBar(prop) {
       <MenuItem onClick={logout}>Logout</MenuItem>
     </Menu>
   );
+    
+  const [showSearchBar,setShowSearchBar] = React.useState(false);
+
+  const toggleSearchBar = ()=>{
+    setShowSearchBar(!showSearchBar)
+    handleMenuClose();
+  }
 
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
@@ -175,6 +187,12 @@ export default function PrimarySearchAppBar(prop) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <MenuItem onClick={toggleSearchBar}>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit" >
+            <SearchIcon />
+        </IconButton>
+        <Typography variant="p">Search</Typography>
+      </MenuItem>
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
@@ -238,7 +256,7 @@ export default function PrimarySearchAppBar(prop) {
 
   return (
     <Box sx={{ flexGrow: 1 }} >
-      <AppBar position="fixed" sx={{left:0,top:0, bgcolor: prop.color}} >
+      <AppBar position="fixed" sx={{left:0,top:0,paddingTop:'5px',paddingBottom:'5px' ,bgcolor: prop.color}} >
         <Toolbar>
           <IconButton
             size="large"
@@ -251,13 +269,15 @@ export default function PrimarySearchAppBar(prop) {
             <MenuIcon />
           </IconButton>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
+
+            sx={{ display: { xs: showSearchBar?"none":"flez", sm: "block" },justifySelf:"center" }}
           >
             {prop.title}
           </Typography>
+          {showSearchBar&&
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -266,9 +286,12 @@ export default function PrimarySearchAppBar(prop) {
               placeholder="Search…"
               inputProps={{ "aria-label": "search" }}
             />
-          </Search>
+          </Search>}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <IconButton size="large" aria-label="search" color="inherit" onClick={toggleSearchBar}>
+            <SearchIcon />
+          </IconButton>
             <IconButton
               size="large"
               aria-label="show 4 new mails"
@@ -313,7 +336,7 @@ export default function PrimarySearchAppBar(prop) {
           </Box>
         </Toolbar>
       </AppBar>
-      <div style={{height:'64px',width:'100%'}}></div>
+      <div style={{height:'74px',width:'100%'}}></div>
       {renderMobileMenu}
       {renderMenu}
     </Box>

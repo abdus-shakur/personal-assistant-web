@@ -26,6 +26,7 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
+  Divider,
   Fab,
   FormControl,
   Grid,
@@ -212,8 +213,8 @@ function TaskModal(props) {
     left: "50%",
     transform: "translate(-50%, -50%)",
     maxWidth: "95vw",
-    width: "70%",
-    minWidth:"50vw",
+    width: "30rem",
+    // minWidth:"50vw",
     bgcolor: "background.paper",
     border: "2px solid #000",
     boxShadow: 24,
@@ -258,6 +259,7 @@ function TaskModal(props) {
                 </Typography>
               </Grid>
             </Grid>
+            <Divider sx={{borderColor:(theme)=>theme.palette.text.primary}}/>
           </React.Fragment>
         ))}
       </Box>

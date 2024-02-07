@@ -29,7 +29,7 @@ export function logoutUser() {
 }
 
 export async function isAuthenticated(){
-    return await GetAxios().get(URLS.DATA_MANAGER_AUTH_VERIFY).then(()=>true).catch(()=>false);
+    return await GetAxios().get(URLS.DATA_MANAGER_AUTH_VERIFY).then(()=>{console.log('authenticated');return true;}).catch(()=>{console.log('not authenticated');return false;});
 }
 
 export function loginDataManagerService(username,password){

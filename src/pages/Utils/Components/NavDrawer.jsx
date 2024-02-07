@@ -1,6 +1,4 @@
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import MailIcon from "@mui/icons-material/Mail";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { Collapse } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";

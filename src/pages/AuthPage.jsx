@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
+import * as ENV_VAR from "../config/env"
+
 import { loginDataManagerService, registerUser } from "./Utils/Service/auth";
 import { Button, IconButton, Snackbar, SnackbarContent } from "@mui/material";
 import { Close } from "@mui/icons-material";
@@ -32,6 +34,8 @@ export default function AuthPage(props) {
 
   }
   
+  console.log("is Git hub  : "+ENV_VAR.IS_GITHUB)
+  console.log("is Localhost : "+ENV_VAR.IS_LOCALHOST)
 
   if (authMode === "signin") {
     return (

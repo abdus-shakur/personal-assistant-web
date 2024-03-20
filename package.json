@@ -2,7 +2,7 @@
   "name": "personal-assistant-web",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://abdus-shakur.github.io/xeyond-assist-web/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -32,9 +32,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && git add . && git commit -am \"NPM Build : Auto Commit\" && git push",
+    "build": "react-scripts build && cp build/index.html build/404.html",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy":"npm run build",
+    "deploy":"gh-pages-d build"
   },
   "eslintConfig": {
     "extends": [

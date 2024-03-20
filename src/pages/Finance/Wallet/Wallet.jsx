@@ -113,20 +113,19 @@ export function Home(){
   return <>
     {/** Accounts View */}
     <Box sx={{paddingLeft:'1rem',paddingRight:'1rem',paddingBottom:'0.5rem'}}>
-      <Typography textAlign={"center"} variant="h4">Accounts</Typography>
+      <Typography textAlign={"center"} style={{userSelect:'none'}}variant="h4">Accounts</Typography>
       <Grid container spacing={2} sx={{paddingTop:'1rem'}} >
         {accounts.map(account=>
-          <Grid item xs={6} md={4} lg={3}>
-            <Paper elevation={6} sx={{...accountStyle,backgroundColor:account.color,color:(theme)=>theme.palette.text.primary}}>{account.name}</Paper>
+          <Grid item xs={6} md={4} lg={3} sx={{width:'100%'}}>
+            <Paper elevation={6} sx={{...accountStyle,backgroundColor:account.color,color:(theme)=>theme.palette.text.primary,userSelect:'none',maxWidth:'40rem',width:'100%'}}>{account.name}</Paper>
           </Grid>)}
         </Grid>
       </Box>
       {/** Cards */}
       <Box sx={{display:'flex',flexWrap:'wrap',spacing:'2rem'}}>
           <DashboardCard1  {...expenseStructure} />
+          <DashboardCard1 {...expenseStructure} />
           {/* <DashboardCard1 {...expenseStructure} />
-          <DashboardCard1 {...expenseStructure} />
-          <DashboardCard1 {...expenseStructure} />
           <DashboardCard1 {...expenseStructure} /> */}
           <Box sx={{paddingBottom:'2rem'}}></Box>
         </Box>

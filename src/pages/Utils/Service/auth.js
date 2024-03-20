@@ -2,10 +2,6 @@ import * as Constants from "../Data/Constants";
 import * as URLS from "../Data/UrlConstants";
 import GetAxios from "./axios-default";
 
-export function registerUser(){
-    
-}
-
 export function logoutUser() {
     
     return new Promise((resolve, reject) => {
@@ -47,4 +43,13 @@ export function loginDataManagerService(username,password){
             console.log("Login Failed");
         }
     });
+}
+
+export function registerUser(userDetails){
+    let user = {};
+    user.username = userDetails.name;
+    user.password = userDetails.password;
+    user.email = userDetails.email;
+    console.log("register User : "+JSON.stringify(user));
+    return GetAxios().post(URLS.DATA_MANAGER_AUTH_REGISTER,user);
 }

@@ -154,6 +154,7 @@ body{
 /** Wallet Dashboard Page **/
 .dashboard-box{
   max-width:30rem;
+  width:100%;
   padding:1rem;
   padding-bottom: 0;
 }

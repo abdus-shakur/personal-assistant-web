@@ -34,8 +34,8 @@ export default function AuthPage(props) {
 
   }
   
-  console.log("is Git hub  : "+ENV_VAR.IS_GITHUB)
-  console.log("is Localhost : "+ENV_VAR.IS_LOCALHOST)
+  // console.log("is Git hub  : "+ENV_VAR.IS_GITHUB)
+  // console.log("is Localhost : "+ENV_VAR.IS_LOCALHOST)
 
   if (authMode === "signin") {
     return (

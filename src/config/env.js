@@ -4,8 +4,8 @@ export const NETWORK_URL = "http://192.168.0.2";
 export const APP_URL = LOCAL_URL;
 
 export const CURRENT_URL = window.location.href;
-export const IS_GITHUB = false;//CURRENT_URL.match(/.*github.*/)!==null
-export const IS_LOCALHOST = true;//CURRENT_URL.match(/.*(localhost|192\.168\.).*/)!==null
+// export const IS_GITHUB = false;//CURRENT_URL.match(/.*github.*/)!==null
+// export const IS_LOCALHOST = true;//CURRENT_URL.match(/.*(localhost|192\.168\.).*/)!==null
 
 export const GOOGLE_OAUTH_REDIRECT_URL = APP_URL+':3000/app';
 export const GOOGLE_SERVICE_URL = APP_URL+":8080";

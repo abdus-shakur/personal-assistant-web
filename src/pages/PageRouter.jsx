@@ -42,23 +42,6 @@ export default function PageRouter(props){
     }
 
     return <>
-    {ENV_VAR.IS_GITHUB?
-    <HashRouter >
-    <Routes >
-    {/* {isAuthenticated()&& */}
-      <Route path={URLS.APP_RELATIVE_URL} element={<><SideBar ref={switchRef} /><Outlet/></>}>
-          {menus.map(menu=>menu.subMenus.map(subMenu=>
-          <Route path={`${menu.path}/`} >
-              <Route path={`${subMenu.path}/*`} element={<PageWithAppBar menu={menu} subMenu={subMenu} changeTheme={changeTheme}/>}/>
-          </Route>))}
-      </Route>
-      {/* } */}
-      <Route path={URLS.ERROR_URL} element={<Error/>} errorElement={<React.Fragment>Not Found</React.Fragment>} />
-      <Route path={URLS.LOGOUT} element={<Logout/>} errorElement={<React.Fragment>Error Logging out Element</React.Fragment>} />
-      <Route exact path={URLS.WILD_CARD_BASE_URL} element={<AuthPage gotoLandingPage={URLS.APP_LANDING_PAGE}/>}/>
-    </Routes>
-    </HashRouter>
-    :
     <BrowserRouter basename={`${process.env.PUBLIC_URL}`}>
       <Routes >
       {/* {isAuthenticated()&& */}
@@ -74,6 +57,5 @@ export default function PageRouter(props){
         <Route exact path={URLS.WILD_CARD_BASE_URL} element={<AuthPage gotoLandingPage={URLS.APP_LANDING_PAGE}/>}/>
       </Routes>
     </BrowserRouter>
-    }
     </>
 }

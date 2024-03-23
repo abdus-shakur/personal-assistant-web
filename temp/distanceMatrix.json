@@ -1,0 +1,26 @@
+{
+  "destination_addresses": [
+    "AH43, Meenakshi Nagar, Madurai, Tamil Nadu 625009, India"
+  ],
+  "origin_addresses": [
+    "Melamadai Mosque, Melamadai, Madurai 625020, Shenbagathottam Colony, Vandiyur, Thasildar Nagar, Madurai, Tamil Nadu 625020, India"
+  ],
+  "rows": [
+    {
+      "elements": [
+        {
+          "distance": { "text": "1.9 km", "value": 1889 },
+          "duration": { "text": "6 mins", "value": 408 },
+          "origin": "9.9242222,78.152",
+          "destination": "9.911664,78.149175",
+          "status": "OK"
+        }
+      ]
+    }
+  ],
+  "status": "OK"
+}
+
+// Fast
+
+

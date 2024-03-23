@@ -38,7 +38,7 @@ export function loginDataManagerService(username,password){
         if(response.status===200){
             localStorage.setItem(Constants.USERNAME,username);
             localStorage.setItem(Constants.PASSWORD,password);
-            window.location.href=URLS.APP_LANDING_PAGE;
+            window.location.href=`${process.env.PUBLIC_URL+URLS.APP_LANDING_PAGE}`;
         }else{
             console.log("Login Failed");
         }

@@ -1,7 +1,7 @@
 import * as ENV_VAR from "../../../config/env"
 
 export const WILD_CARD_BASE_URL = "/*";
-export const PREFIX = ENV_VAR.IS_GITHUB?"#":"/";
+export const PREFIX = "/";
 
 // UI End Points
 export const APP_RELATIVE_URL = PREFIX+"app/";

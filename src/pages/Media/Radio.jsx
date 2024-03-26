@@ -2,12 +2,15 @@ import { CheckBox, CheckBoxOutlineBlank, PlayArrow } from "@mui/icons-material";
 import {
   Autocomplete,
   Checkbox,
+  Divider,
+  Grid,
   IconButton,
   List,
   ListItemIcon,
   ListItemText,
   MenuItem,
   Paper,
+  Stack,
   TextField,
   Typography
 } from "@mui/material";
@@ -28,60 +31,89 @@ export default function Radio() {
     return 0
   }))
   const [currentStations, setStations] = useState(
-    [...Array(stationData.length).keys()].map((foo) => foo + 1)
+    [...Array(stationData.length).keys()].map((foo) => foo)
   );
-  const searchRadioStations = (event) => {
+  const filterRadioStationsByName = (name)=>{
     var matchedStations = [];
+  
+    if(Array.isArray(name)){
+      
+      name = name.map(data=>data.name).reduce((accumulator, currentValue) => {
+        // Check if accumulator is empty to avoid adding delimiter at the beginning
+        if (accumulator === "") {
+            return currentValue;
+        } else {
+            return accumulator + "|" + currentValue;
+        }
+    },"")
+      console.log(name)
+      console.log("Inside")
+      name = "("+name.substring(0,name.length-1)+")"
+      console.log(name)
+    }
     for (let i = 0; i < stationData.length; i++) {
       let data = stationData[i];
       if (
         data.name !== null &&
         data.name !== undefined &&
-        data.name.match(new RegExp(".*" + event.target.value + ".*", "i"))
+        data.name.match(new RegExp(".*" + name+ ".*", "i"))
       ) {
-        matchedStations.push(i + 1);
+        matchedStations.push(i);
       }
     }
     setStations([...matchedStations]);
+  }
+  const searchRadioStations = (event) => {
+    filterRadioStationsByName(event.target.value);
   };
+  const [selectedOptions,setSelectedOptions] = useState([]);
+  const handleOnChange = (event,values)=>{
+    console.log(values)
+    values = values.map(data=>{
+      if(typeof data === "object"){
+        return data
+      }
+      var obj = {}
+      obj.name = data;
+      return obj;
+    })
+    setSelectedOptions(values);
+    filterRadioStationsByName(values)
+  }
   return (
     <>
-      <TextField
+    <Grid container gap={3} sx={{paddingTop:"1rem"}}>
+      <Grid item>
+      <TextField sx={{width:"30rem"}}
         label="Search"
         placeholder="Search Radio Stations"
         onChange={(e) => searchRadioStations(e)}
       ></TextField>
-      <Autocomplete  options={stationData.map((dat,index)=>{
-        dat.label = dat.name;
-        // dat.index = index;
-        return dat;
-      })} value={"first"}
-
-      renderOption={(props, option, { selected }) => (
-        <li {...props}>
-          <Checkbox
-            icon={<CheckBoxOutlineBlank fontSize="small" />}
-            checkedIcon={<CheckBox fontSize="small" />}
-            style={{ marginRight: 8 }}
-            checked={selected}
-          />
-          {option.name}
-        </li>
-      )}
-      
-      renderInput={(params)=><TextField  {...params} label="Test" value="first">Value</TextField>}></Autocomplete>
+      </Grid>
+      <Grid item>
+      <Autocomplete sx={{width:"30rem"}} multiple options={stationData.map((data,index)=>{data.key=index;return data;})}
+      getOptionLabel={(option) => option.name}
+      value={selectedOptions}
+      onChange={handleOnChange}
+      freeSolo="true"
+      renderInput={(params) => (
+        <TextField {...params} label="Search Stations" placeholder="Search Radio Stations" />
+      )}/>
+      </Grid>
+      </Grid>
+      <Divider sx={{paddingTop:"0.5rem"}}variant="fullWidth">Showing {currentStations.length} of {stationData.length} Stations</Divider>
       <List>
         {currentStations ? (
           currentStations.map((stationIndex, index) => (
             <MenuItem
               style={{ width: "100%" }}
-              onClick={() => setRadioIndex(stationIndex - 1)}
+              onClick={() => setRadioIndex(stationIndex)}
             >
               <ListItemText
-                primary={stationData[stationIndex - 1].name}
+                primary={stationData[stationIndex].name}
               ></ListItemText>
               <ListItemIcon style={{ minWidth: "1rem" }}>
-                <IconButton onClick={() => setRadioIndex(stationIndex - 1)}>
+                <IconButton onClick={() => setRadioIndex(stationIndex)}>
                   <PlayArrow />
                 </IconButton>
               </ListItemIcon>

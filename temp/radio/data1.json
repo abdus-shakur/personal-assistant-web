@@ -1,0 +1,1574 @@
+[
+    {
+      "media_url": [
+        "https://listen.openstream.co/4428/audio",
+        "https://www.liveradio.es/http://tamil.crabdance.com:8002/3",
+        "http://sp14.instainternet.com/8010/stream",
+        " https://listen.openstream.co/4428/audio",
+        "https://stream.zeno.fm/20cv0z9gg0quv"
+      ],
+      "station_id": "hellofm.html",
+      "station_name": "Hello FM 106.4 Chennai Tamil"
+    },
+    {
+      "media_url": [
+        "http://air.pc.cdn.bitgravity.com/air/live/pbaudio016/playlist.m3u8"
+      ],
+      "station_id": "akashvanicoimbatore.html",
+      "station_name": "Akashvani Coimbatore AIR "
+    },
+    {
+      "media_url": [
+        "https://live.cmr24.net/CMR/TamilHD-MQ/icecast.audio"
+      ],
+      "station_id": "tamilhdradio.html",
+      "station_name": "CMR FM Tamil HD radio"
+    },
+    {
+      "media_url": [
+        "https://a9radio1-a9media.radioca.st/stream",
+        "https://www.liveradio.es/http://195.154.217.103:8175/stream/2/;stream.mp3"
+      ],
+      "station_id": "a9radio.html",
+      "station_name": "A9 Radio "
+    },
+    {
+      "media_url": [
+        "https://centova.aarenworld.com/proxy/894tamilfm/stream"
+      ],
+      "station_id": "tamilfm.html",
+      "station_name": "Tamil 89.4 FM"
+    },
+    {
+      "media_url": [
+        "https://thenaruvivaanoli.radioca.st/stream"
+      ],
+      "station_id": "thenaruvifm.html",
+      "station_name": "Thenaruvi FM"
+    },
+    {
+      "media_url": [
+        "https://neramfm.com:80/stream"
+      ],
+      "station_id": "timefm.html",
+      "station_name": "Time FM"
+    },
+    {
+      "media_url": [
+        "https://ec3.yesstreaming.net:4040/stream"
+      ],
+      "station_id": "spbhits.html",
+      "station_name": "SPB Hits"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio078/playlist.m3u8"
+      ],
+      "station_id": "fmrainbowdharmapuri.html",
+      "station_name": "FM Rainbow Dharmapuri"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio207/playlist.m3u8"
+      ],
+      "station_id": "airootyfm.html",
+      "station_name": "All India Radio Ooty FM"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio126/playlist.m3u8"
+      ],
+      "station_id": "maduraifm.html",
+      "station_name": "Madurai FM Rainbow Madurai 103.3 MHz"
+    },
+    {
+      "media_url": [
+        "https://sp14.instainternet.com/8084/;"
+      ],
+      "station_id": "capitalfm.html",
+      "station_name": "Capital FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/0bhsthssutzuv"
+      ],
+      "station_id": "harrisjayarajradio.html",
+      "station_name": "Harris jayaraj"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio025/playlist.m3u8"
+      ],
+      "station_id": "airtamil.html",
+      "station_name": "ALL INDIA RADIO TAMIL"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio024/playlist.m3u8"
+      ],
+      "station_id": "vividhbharathitamil.html",
+      "station_name": "Vividh Bharati"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio021/playlist.m3u8"
+      ],
+      "station_id": "fmgoldtamil.html",
+      "station_name": "FM Gold Chennai"
+    },
+    {
+      "media_url": [
+        "http://stream.zeno.fm/yp73agy93qzuv"
+      ],
+      "station_id": "tamilkuyilradio.html",
+      "station_name": "Tamil kuyil Radio "
+    },
+    {
+      "media_url": [
+        "https://centova71.instainternet.com/proxy/isaiolifmadmin?mp=/stream&1691245966241"
+      ],
+      "station_id": "isaiolifm.html",
+      "station_name": "Isai Oli FM"
+    },
+    {
+      "media_url": [
+        "https://centova71.instainternet.com/proxy/tamilrockyfm?mp=/stream"
+      ],
+      "station_id": "tamilrockyfm.html",
+      "station_name": "Tamil Rocky FM"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.in/kodaiaruvifm/stream",
+        "https://spserver.sscast2u.com/8140/stream"
+      ],
+      "station_id": "kodaiaruvifm.html",
+      "station_name": "Kodai Aruvi FM"
+    },
+    {
+      "media_url": [
+        "https://mazhalaitamilradio-prabak78.radioca.st/stream"
+      ],
+      "station_id": "mazhalaitamilradio.html",
+      "station_name": "Mazhalai FM"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.in/valasaivanoli/stream"
+      ],
+      "station_id": "valasaivanoli.html",
+      "station_name": "Valasai Vanoli"
+    },
+    {
+      "media_url": [
+        "https://vaagai.radioca.st/stream2/listen#.mp3"
+      ],
+      "station_id": "vaagaifm.html",
+      "station_name": "Vaagai FM"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.in/8166/stream"
+      ],
+      "station_id": "vaniradio.html",
+      "station_name": "Vani Radio"
+    },
+    {
+      "media_url": [
+        "https://usa8.fastcast4u.com/proxy/subikshafm?mp=/1"
+      ],
+      "station_id": "subikshafm.html",
+      "station_name": "Subiksha FM"
+    },
+    {
+      "media_url": [
+        "https://listen.openstream.co/7007/audio"
+      ],
+      "station_id": "tamilakaramradio.html",
+      "station_name": "Tamilakaram Radio"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.in/melurragamfm/stream"
+      ],
+      "station_id": "ragamfmmelur.html",
+      "station_name": "Ragam FM Melur"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/axoonif2zvetv"
+      ],
+      "station_id": "sunlitefm.html",
+      "station_name": "Sunlite FM"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.com/sstamilradio/stream"
+      ],
+      "station_id": "sstamilradiosivagangai.html",
+      "station_name": "SS Tamil Radio Sivagangai"
+    },
+    {
+      "media_url": [
+        "http://stream.zeno.fm/p5k41f436qzuv"
+      ],
+      "station_id": "tubetamilfm.html",
+      "station_name": "Tube Tamil FM"
+    },
+    {
+      "media_url": [
+        "https://ec3.yesstreaming.net:1190/stream"
+      ],
+      "station_id": "a1tamilradio.html",
+      "station_name": "A1 tamil Radio"
+    },
+    {
+      "media_url": [
+        "https://rdopanel.cobrasoft.org:1060/stream",
+        "https://radioplayer.putulhost.com/public/radiostreamfiles/radio4.php"
+      ],
+      "station_id": "nagafm.html",
+      "station_name": "Naga FM"
+    },
+    {
+      "media_url": [
+        "https://onair.punnagairadio.com/8146/stream"
+      ],
+      "station_id": "punnagaifm.html",
+      "station_name": "Punngai FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/r4znzpvskchvv"
+      ],
+      "station_id": "cityfmtamil.html",
+      "station_name": "City FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/oogj1rc9cdctv"
+      ],
+      "station_id": "cheemaifm.html",
+      "station_name": "Cheemai FM"
+    },
+    {
+      "media_url": [
+        "https://usa7.fastcast4u.com/proxy/ozmediae?mp=/1"
+      ],
+      "station_id": "inbathamiloli.html",
+      "station_name": "Inba thamil oli"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://usa7.fastcast4u.com:8808/soupfm"
+      ],
+      "station_id": "soupfm.html",
+      "station_name": "Soup FM"
+    },
+    {
+      "media_url": [
+        "https://radiogethu2k18.radioca.st/stream"
+      ],
+      "station_id": "radiogethu.html",
+      "station_name": "radio gethu"
+    },
+    {
+      "media_url": [
+        "https://live.cmr24.net/CMR/CMR-MQ/icecast.audio"
+      ],
+      "station_id": "cmrthamilfm.html",
+      "station_name": "CMR Thamil fm"
+    },
+    {
+      "media_url": [
+        "https://s7.viastreaming.net/m/7920"
+      ],
+      "station_id": "atbctamil.html",
+      "station_name": "ATBC"
+    },
+    {
+      "media_url": [
+        "https://kummalam.stream.laut.fm/kummalam"
+      ],
+      "station_id": "kummalamradio.html",
+      "station_name": "Kummalam"
+    },
+    {
+      "media_url": [
+        "https://tamilmurasam.radioca.st/stream"
+      ],
+      "station_id": "tamilmurasam.html",
+      "station_name": "Tamil murasam"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://37.187.174.88:8127/liteTitle1"
+      ],
+      "station_id": "saalaramvalaioli.html",
+      "station_name": "Saalaram Valaioli"
+    },
+    {
+      "media_url": [
+        "https://ec5.yesstreaming.net:1065/stream",
+        "https://s4.yesstreaming.net:17182/stream"
+      ],
+      "station_id": "radiotamizha.html",
+      "station_name": "Radio Tamizha"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://220.247.227.6:8000/Yaalstream"
+      ],
+      "station_id": "yaalfm.html",
+      "station_name": "Yaal FM"
+    },
+    {
+      "media_url": [
+        "https://tamilkaterumbufm-prabak78.radioca.st/stream"
+      ],
+      "station_id": "tamilkaterumbufm.html",
+      "station_name": "Tamil katerumbu FM"
+    },
+    {
+      "media_url": [
+        "https://ecrfm-prabak78.radioca.st/stream"
+      ],
+      "station_id": "eastcoastradio.html",
+      "station_name": "East Coast Radio"
+    },
+    {
+      "media_url": [
+        "https://usa9.fastcast4u.com/proxy/nesaganam?mp=/1"
+      ],
+      "station_id": "nesaganam.html",
+      "station_name": "Nesaganam"
+    },
+    {
+      "media_url": [
+        "https://s9.voscast.com:9551/stream"
+      ],
+      "station_id": "sharvamfm.html",
+      "station_name": "Sharvam FM"
+    },
+    {
+      "media_url": [
+        "https://streamer.radio.co/s688f110d0/listen"
+      ],
+      "station_id": "athiraditamilradio.html",
+      "station_name": "Athiradi tamil radio"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://s5.voscast.com:9746/stream"
+      ],
+      "station_id": "yarlfm.html",
+      "station_name": "Yarl FM"
+    },
+    {
+      "media_url": [
+        "https://centova71.instainternet.com/proxy/imaifmradio?mp=/stream"
+      ],
+      "station_id": "imaifm.html",
+      "station_name": "Imai Fm"
+    },
+    {
+      "media_url": [
+        "https://radio.massstream.net/8010/stream"
+      ],
+      "station_id": "ttrfm.html",
+      "station_name": null
+    },
+    {
+      "media_url": [
+        "https://streams.radio.co/s937ac5492/listen"
+      ],
+      "station_id": "itamilmedia.html",
+      "station_name": "I Tamil media"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.in/nehafm/stream"
+      ],
+      "station_id": "nehafm.html",
+      "station_name": "Neha FM"
+    },
+    {
+      "media_url": [
+        "https://kuvalai.com/radio/stream.mp3"
+      ],
+      "station_id": "kuvalairadio.html",
+      "station_name": "Kuvalai radio"
+    },
+    {
+      "media_url": [
+        "https://usa3.fastcast4u.com/proxy/dhayanib?mp=/;"
+      ],
+      "station_id": "friendstamilchatfm.html",
+      "station_name": "Friends tamil chat FM"
+    },
+    {
+      "media_url": [
+        "https://radio.mediacp.eu/stream/mtr-fm/stream"
+      ],
+      "station_id": "mtrfm.html",
+      "station_name": "Montreal tamil radio FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/22db1xmde2zuv"
+      ],
+      "station_id": "arumbufm.html",
+      "station_name": "Arumbu FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://s2.voscast.com:12136/;stream.mp3?1639674365578"
+      ],
+      "station_id": "vettrioli.html",
+      "station_name": "Vettrioli FM"
+    },
+    {
+      "media_url": [
+        "https://s4.voscast.com:8735/stream"
+      ],
+      "station_id": "thulifm.html",
+      "station_name": "Thuli FM"
+    },
+    {
+      "media_url": [
+        "https://sugu.radioca.st/stream/;stream/1"
+      ],
+      "station_id": "paaddu.html",
+      "station_name": "Paaddu FM"
+    },
+    {
+      "media_url": [
+        "https://usa9.fastcast4u.com/proxy/arnifm?mp=/1",
+        "https://www.liveradio.es/http://192.95.39.65:5018/;"
+      ],
+      "station_id": "arnicityfm.html",
+      "station_name": "Arni City FM"
+    },
+    {
+      "media_url": [
+        "https://radio.massstream.net/8010/stream"
+      ],
+      "station_id": "vtrfm.html",
+      "station_name": "VTR FM"
+    },
+    {
+      "media_url": [
+        "https://listen.openstream.co/6789/audio"
+      ],
+      "station_id": "amudhamfm.html",
+      "station_name": "Amudham FM"
+    },
+    {
+      "media_url": [
+        "https://usa19.fastcast4u.com/eftphimk"
+      ],
+      "station_id": "samugamfm.html",
+      "station_name": "Samugam FM"
+    },
+    {
+      "media_url": [
+        "https://node-11.zeno.fm/cyz8ay2vm7zuv?rj-ttl=5&rj-tok=AAABc6khb_QARwYZMVYlVnc0PQ"
+      ],
+      "station_id": "saifm.html",
+      "station_name": "Sai FM"
+    },
+    {
+      "media_url": [
+        "https://streaming.radio.co/sf833cd785/listen"
+      ],
+      "station_id": "eaglefm.html",
+      "station_name": "Eagle FM"
+    },
+    {
+      "media_url": [
+        "https://eu10.fastcast4u.com:6740/stream"
+      ],
+      "station_id": "ullasamfm.html",
+      "station_name": "Ullasam FM"
+    },
+    {
+      "media_url": [
+        "https://node-07.zeno.fm/q6h0dmrrn7zuv?rj-ttl=5&rj-tok=AAABc600G2AAP25zjJUim0q36Q"
+      ],
+      "station_id": "owlfmradio.html",
+      "station_name": "Owl FM Radio"
+    },
+    {
+      "media_url": [
+        "https://s56.radiolize.com/radio/8000/radio.mp3",
+        "https://radioplayer.putulhost.com/public/radiostreamfiles/radio4.php"
+      ],
+      "station_id": "oviyamfm.html",
+      "station_name": "Oviyam FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://tachyon.shoutca.st:8643/stream",
+        "https://www.liveradio.es/http://tachyon.shoutca.st:8643/stream"
+      ],
+      "station_id": "anbolifm.html",
+      "station_name": "Anboli FM"
+    },
+    {
+      "media_url": [
+        "https://strw3.openstream.co/791",
+        "https://stream.zeno.fm/2zzz7qre56duv"
+      ],
+      "station_id": "dancetamizha.html",
+      "station_name": "Dance Tamizha"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://s7.voscast.com:10864;"
+      ],
+      "station_id": "pasangafm.html",
+      "station_name": "Pasanga FM"
+    },
+    {
+      "media_url": [
+        "https://usa19.fastcast4u.com/swiss"
+      ],
+      "station_id": "swisstamilradio.html",
+      "station_name": "Swiss Tamil Radio"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/3b88garm268uv"
+      ],
+      "station_id": "dsrfmtamil.html",
+      "station_name": "Dream share FM"
+    },
+    {
+      "media_url": [
+        "https://listen.openstream.co/3372/audio"
+      ],
+      "station_id": "radiobeat.html",
+      "station_name": "Radio Beat"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://5.63.151.52:7142/stream"
+      ],
+      "station_id": "radiobeatretro.html",
+      "station_name": "Radio Beat Retro"
+    },
+    {
+      "media_url": [
+        "https://s3.yesstreaming.net:17045/stream"
+      ],
+      "station_id": "thayagamradio.html",
+      "station_name": "Thayagam radio FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/88cuqz816qzuv"
+      ],
+      "station_id": "thamilesai.html",
+      "station_name": "Thamil esai"
+    },
+    {
+      "media_url": [
+        "https://tamilpanpalai.radioca.st/ind"
+      ],
+      "station_id": "tamilpanpalai.html",
+      "station_name": "Tamil Panpalai FM"
+    },
+    {
+      "media_url": [
+        "http://playerservices.streamtheworld.com/api/livestream-redirect/RADIO_SUNO_TAMIL_S01.mp3"
+      ],
+      "station_id": "radiosunotamil.html",
+      "station_name": "Radio Suno"
+    },
+    {
+      "media_url": [
+        "https://sathees.radioca.st/;",
+        "https://fra-ranger01.dedicateware.com:8008/stream"
+      ],
+      "station_id": "radiovaanam.html",
+      "station_name": "Radio vaanam"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/f2560wp9dchvv"
+      ],
+      "station_id": "ultrafm.html",
+      "station_name": "Ultra FM"
+    },
+    {
+      "media_url": [
+        "https://usa15.fastcast4u.com/proxy/tamilosaifm?mp=/1"
+      ],
+      "station_id": "tamilosaifm.html",
+      "station_name": "Tamil Osai FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://vtr24.com:8000/;"
+      ],
+      "station_id": "vegamtamilradio.html",
+      "station_name": "Vegam Tamil Radio"
+    },
+    {
+      "media_url": [
+        "https://s3.radio.co/sadfae7495/listen"
+      ],
+      "station_id": "roobamfm.html",
+      "station_name": "Demo FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://eu10.fastcast4u.com:1260/;",
+        "https://www.liveradio.es/http://eu10.fastcast4u.com:1260/;"
+      ],
+      "station_id": "chandrufm.html",
+      "station_name": "Chandru FM"
+    },
+    {
+      "media_url": [
+        "https://strw3.openstream.co/1993"
+      ],
+      "station_id": "radiobeatlove.html",
+      "station_name": "Radio Beat Love"
+    },
+    {
+      "media_url": [
+        "http://stream.zeno.fm/nkb65rhqbrzuv"
+      ],
+      "station_id": "pasamfm.html",
+      "station_name": "Pasam FM"
+    },
+    {
+      "media_url": [
+        "https://gtr-unicast2u.radioca.st/stream"
+      ],
+      "station_id": "germantamilfm.html",
+      "station_name": "German tamil FM"
+    },
+    {
+      "media_url": [
+        "https://stream-42.zeno.fm/0n3rzntvpfhvv"
+      ],
+      "station_id": "shyamalavaniradio.html",
+      "station_name": "Shyamalavani Radio"
+    },
+    {
+      "media_url": [
+        "https://cast3.asurahosting.com/proxy/pudhugai/stream"
+      ],
+      "station_id": "pudhugaifm.html",
+      "station_name": "Pudhugai FM 91.2"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.com/8046/stream"
+      ],
+      "station_id": "thavakalairadio.html",
+      "station_name": "Thavakalai Radio"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.in/madhuramradio/stream",
+        "https://spserver.sscast2u.com/8142/stream"
+      ],
+      "station_id": "madhuramradio.html",
+      "station_name": "Madhuram Radio"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/xuqoqfdtjcquv"
+      ],
+      "station_id": "annaifm.html",
+      "station_name": "Annai FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/ohhsihm2byluv?"
+      ],
+      "station_id": "chillaxfm.html",
+      "station_name": "Chillax FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://198.27.66.225:8498/stream"
+      ],
+      "station_id": "ctr24.html",
+      "station_name": "CTR 24 Tamil radio"
+    },
+    {
+      "media_url": [
+        "https://stream.rcs.revma.com/0bprm5vbv4uvv",
+        "https://astro4.rastream.com/osai"
+      ],
+      "station_id": "osaifm.html",
+      "station_name": "Osai FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://ctbcfmradio.primcast.com:4086/;"
+      ],
+      "station_id": "ctbcradio.html",
+      "station_name": "CTBC radio Canada"
+    },
+    {
+      "media_url": [
+        "http://spserver.sscast2u.in/dindigulcityfm/stream"
+      ],
+      "station_id": "dindigulradio.html",
+      "station_name": "Dindigul Radio"
+    },
+    {
+      "media_url": [
+        "https://thenralw.radioca.st/LiveStream",
+        "https://www.liveradio.es/http://37.187.79.93:9116/;"
+      ],
+      "station_id": "thendralradio.html",
+      "station_name": "Thendral world radio"
+    },
+    {
+      "media_url": [
+        "https://vm65162.streamerr.co/listen/megazone_south/radio.mp3"
+      ],
+      "station_id": "megazonesouth.html",
+      "station_name": "Mega zone south"
+    },
+    {
+      "media_url": [
+        "https://eu4.fastcast4u.com/proxy/goguna00?mp=/;"
+      ],
+      "station_id": "gtrfm.html",
+      "station_name": "GTR FM"
+    },
+    {
+      "media_url": [
+        "https://sp.radiotamilonline.com/8010/stream"
+      ],
+      "station_id": "anandhamfm.html",
+      "station_name": "Anandham FM"
+    },
+    {
+      "media_url": [
+        "https://s5.voscast.com:9539/s5.voscast.com"
+      ],
+      "station_id": "bigfmjaffna.html",
+      "station_name": "Big FM Jaffna"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/wg4b845c2wzuv"
+      ],
+      "station_id": "leaderfm.html",
+      "station_name": "Leader FM"
+    },
+    {
+      "media_url": [
+        "https://kathamizhfm-prabak78.radioca.st/stream"
+      ],
+      "station_id": "kathamizhfm.html",
+      "station_name": "KA Thamizh FM"
+    },
+    {
+      "media_url": [
+        "https://sp.radiotamilonline.com/lakshmifm/stream"
+      ],
+      "station_id": "lakshmifm.html",
+      "station_name": "Lakshmi FM 5.1"
+    },
+    {
+      "media_url": [
+        "https://sp14.instainternet.com/8092/stream"
+      ],
+      "station_id": "radio008fm.html",
+      "station_name": "Radio 008 FM"
+    },
+    {
+      "media_url": [
+        "https://s3.voscast.com:10527/stream"
+      ],
+      "station_id": "namathufm.html",
+      "station_name": "Namathu FM"
+    },
+    {
+      "media_url": [
+        "https://rythmmixfm.radioca.st/stream"
+      ],
+      "station_id": "rythmmixfm.html",
+      "station_name": "Rythm Mix FM"
+    },
+    {
+      "media_url": [
+        "https://centova32.instainternet.com/proxy/aranfm?mp=/stream"
+      ],
+      "station_id": "aranfm.html",
+      "station_name": "Aran FM"
+    },
+    {
+      "media_url": [
+        "https://usa3.fastcast4u.com/proxy/jeifm?mp=/1"
+      ],
+      "station_id": "jeifm.html",
+      "station_name": "Jei FM"
+    },
+    {
+      "media_url": [
+        "https://s6.yesstreaming.net:19012/stream;"
+      ],
+      "station_id": "yugamradio.html",
+      "station_name": "Yugam Radio"
+    },
+    {
+      "media_url": [
+        "https://bud.streampanel.net:6257/stream"
+      ],
+      "station_id": "etrradio.html",
+      "station_name": "Europe"
+    },
+    {
+      "media_url": [
+        "https://e20.yesstreaming.net:8296/;?type=http&nocache=2"
+      ],
+      "station_id": "semmozhifm.html",
+      "station_name": "Semmozhi FM"
+    },
+    {
+      "media_url": [
+        "https://hello.citrus3.com:2020/stream/britishindiantamilradio"
+      ],
+      "station_id": "britishindiantamilradio.html",
+      "station_name": "British Indian Tamil"
+    },
+    {
+      "media_url": [
+        "https://radio.perthtamiltalkies.com.au/radio/8010/tamilcholai"
+      ],
+      "station_id": "tamilcholai.html",
+      "station_name": "Tamil Cholai"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/e2b3xgmdhuquv"
+      ],
+      "station_id": "tamilthangamfm.html",
+      "station_name": "Tamil Thangam FM"
+    },
+    {
+      "media_url": [
+        "https://haritamilfm-prabak78.radioca.st/stream"
+      ],
+      "station_id": "haritamilfm.html",
+      "station_name": "Hari Tamil FM"
+    },
+    {
+      "media_url": [
+        "https://radiopetti.out.airtime.pro/radiopetti_a"
+      ],
+      "station_id": "radiopetti.html",
+      "station_name": "Radio Petti"
+    },
+    {
+      "media_url": [
+        "https://mars.streamerr.co/8274/stream"
+      ],
+      "station_id": "pothikaifm.html",
+      "station_name": "Pothikai FM"
+    },
+    {
+      "media_url": [
+        "https://cp11.serverse.com/proxy/hgsmgluv?mp=/stream"
+      ],
+      "station_id": "americantamilradio.html",
+      "station_name": "Amercian tamil radio FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://jtrfm.ddnss.de:8000/;stream.mp3"
+      ],
+      "station_id": "jtrfm.html",
+      "station_name": "JTR FM"
+    },
+    {
+      "media_url": [
+        "https://usa3.fastcast4u.com/proxy/natpunet?mp=/;"
+      ],
+      "station_id": "natpufm.html",
+      "station_name": "Natpu FM"
+    },
+    {
+      "media_url": [
+        "https://playerservices.streamtheworld.com/api/livestream-redirect/OLI968FMAAC.aac"
+      ],
+      "station_id": "olifm.html",
+      "station_name": "Oli FM"
+    },
+    {
+      "media_url": [
+        "https://s2.voscast.com:10343/stream?type=.mp3",
+        "https://s2.voscast.com:10343/stream?type=.mp3"
+      ],
+      "station_id": "athavanradio.html",
+      "station_name": "Athavan radio FM"
+    },
+    {
+      "media_url": [
+        "https://ec3.yesstreaming.net:2675/stream"
+      ],
+      "station_id": "starfm.html",
+      "station_name": "Star FM"
+    },
+    {
+      "media_url": [
+        "https://a9oldhits-a9media.radioca.st/stream"
+      ],
+      "station_id": "a9radiooldhits.html",
+      "station_name": "A9 Radio Old Hits "
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/vewxk5336qzuv"
+      ],
+      "station_id": "ilctamil.html",
+      "station_name": "ILC tAMIL"
+    },
+    {
+      "media_url": [
+        "https://playerservices.streamtheworld.com/api/livestream-redirect/NAKSHATRA_S01AAC_SC"
+      ],
+      "station_id": "nakshatraradio.html",
+      "station_name": "Nakshatra Radio"
+    },
+    {
+      "media_url": [
+        "https://servidor18-4.brlogic.com:7740/live"
+      ],
+      "station_id": "tamilaruvifm.html",
+      "station_name": "Tamilaruvi FM"
+    },
+    {
+      "media_url": [
+        "https://streams.radio.co/s937ac5492/listen"
+      ],
+      "station_id": "eyetamilradio.html",
+      "station_name": "Eye Tamil Radio"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://212.83.138.48:8079/;"
+      ],
+      "station_id": "etrmusic.html",
+      "station_name": "ETR Music"
+    },
+    {
+      "media_url": [
+        "http://stream.zeno.fm/1ycmepnthkhvv"
+      ],
+      "station_id": "radiomadurai.html",
+      "station_name": "Radio Madurai"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/f29eh57d3qzuv"
+      ],
+      "station_id": "pollachifm.html",
+      "station_name": "Pollachi FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/r1m0u429e2zuv"
+      ],
+      "station_id": "thambifm.html",
+      "station_name": "Thambi FM"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.in/ssradionatham/stream",
+        "https://server.sscast2u.com/8010/stream"
+      ],
+      "station_id": "ssradionatham.html",
+      "station_name": "SS Radio Natham"
+    },
+    {
+      "media_url": [
+        "https://usa15.fastcast4u.com/proxy/tammus00?mp=/;"
+      ],
+      "station_id": "friendstamilfm.html",
+      "station_name": "Friends Tamil FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/7dqtawdfmzzuv.aac"
+      ],
+      "station_id": "shyamradio.html",
+      "station_name": "Shyam FM Radio chennai"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/r7a6hvh2yf8uv"
+      ],
+      "station_id": "sudarfm.html",
+      "station_name": "Sudar FM"
+    },
+    {
+      "media_url": [
+        "https://sp.radiotamilonline.com/8016/stream"
+      ],
+      "station_id": "mahafm.html",
+      "station_name": "Maha FM"
+    },
+    {
+      "media_url": [
+        "https://sirpifmhd-unicast2u.radioca.st/stream"
+      ],
+      "station_id": "sirpifm.html",
+      "station_name": "Sirpi FM"
+    },
+    {
+      "media_url": [
+        "https://usa11.fastcast4u.com/proxy/ajaydk?mp=/;"
+      ],
+      "station_id": "abinayamfm.html",
+      "station_name": "Abinayam  FM"
+    },
+    {
+      "media_url": [
+        "https://listen.radioking.com/radio/188161/stream/230320"
+      ],
+      "station_id": "adiraifm.html",
+      "station_name": "Adirai FM 90.4"
+    },
+    {
+      "media_url": [
+        "https://ec3.yesstreaming.net:2475/stream"
+      ],
+      "station_id": "muslimvaanoli.html",
+      "station_name": "Muslim Vaanoli"
+    },
+    {
+      "media_url": [
+        "https://kathiravanfm-prabak78.radioca.st/stream"
+      ],
+      "station_id": "kathiravanfm.html",
+      "station_name": "Kathiravan FM"
+    },
+    {
+      "media_url": [
+        "https://usa15.fastcast4u.com/proxy/magizhchifm?mp=/1"
+      ],
+      "station_id": "magizhchifm.html",
+      "station_name": "Magizhchi FM"
+    },
+    {
+      "media_url": [
+        "https://ovps1.ulcast.com:8010/1"
+      ],
+      "station_id": "arimugamfm.html",
+      "station_name": "Arimugam FM"
+    },
+    {
+      "media_url": [
+        "https://cp1.hostcrate.com/8910/stream"
+      ],
+      "station_id": "isaiyaruvifm.html",
+      "station_name": "Isaiyaruvi FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://us9.streamingpulse.com:7051/live"
+      ],
+      "station_id": "kalasamfm.html",
+      "station_name": "Kalasam FM"
+    },
+    {
+      "media_url": [
+        "https://s4.voscast.com:8857/stream",
+        "https://s4.voscast.com:8857/stream"
+      ],
+      "station_id": "asalfm.html",
+      "station_name": "Asal FM"
+    },
+    {
+      "media_url": [
+        "https://cast4.asurahosting.com/proxy/neville/stream"
+      ],
+      "station_id": "tamilragam.html",
+      "station_name": "Tamil Ragam"
+    },
+    {
+      "media_url": [
+        "https://audio-edge-vqwx4.yyz.g.radiomast.io/08bc6e27-79cc-42e5-b3be-8890f42efbb5"
+      ],
+      "station_id": "radiodhool.html",
+      "station_name": "Radio Dhool"
+    },
+    {
+      "media_url": [
+        "https://nilafmhd-unicast2u.radioca.st/stream"
+      ],
+      "station_id": "nilafm.html",
+      "station_name": "Nila FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/tmgktm50dzzuv"
+      ],
+      "station_id": "tamilcomedyradio.html",
+      "station_name": "Taml Comedy Radio"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/k0qrmtts91zuv"
+      ],
+      "station_id": "lifefmkarur.html",
+      "station_name": "Life FM"
+    },
+    {
+      "media_url": [
+        "http://usa15.fastcast4u.com/proxy/tammus00?mp=/;"
+      ],
+      "station_id": "numtamilradio.html",
+      "station_name": "Num Tamil radio"
+    },
+    {
+      "media_url": [
+        "https://njsunrise.out.airtime.pro/njsunrise_a"
+      ],
+      "station_id": "njsunriseradio.html",
+      "station_name": "NJ Sunrise"
+    },
+    {
+      "media_url": [
+        "https://radio.isaiyoli.com/radio/8000/radio.mp3"
+      ],
+      "station_id": "tamilvaanoli.html",
+      "station_name": "Tamil vaanoli"
+    },
+    {
+      "media_url": [
+        "https://radio.isaiyoli.com/radio/8000/radio.mp3"
+      ],
+      "station_id": "isaiyoliradio.html",
+      "station_name": "Isai Yoli radio"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://perseverance.shoutca.st:8482/stream?type=http&nocache=2"
+      ],
+      "station_id": "yuwaveradio.html",
+      "station_name": "Yuwave radio"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/ce1nxbxxnrquv"
+      ],
+      "station_id": "kathirfm.html",
+      "station_name": "Kathir FM"
+    },
+    {
+      "media_url": [
+        "https://ssl.aloncast.com:1466/stream"
+      ],
+      "station_id": "tamilchristianradio.html",
+      "station_name": "Tamil christian Radio Channels online "
+    },
+    {
+      "media_url": [
+        ""
+      ],
+      "station_id": "tamilhinduradio.html",
+      "station_name": "Tamil Hindu devotional radio Channels online "
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/qmtwp07a4qzuv"
+      ],
+      "station_id": "evergreentamilradio.html",
+      "station_name": "Evergreen Tamil Radio"
+    },
+    {
+      "media_url": [
+        "https://ec4.yesstreaming.net:1990/stream"
+      ],
+      "station_id": "thaalamfm.html",
+      "station_name": "Thaalam FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/aw9ngy72tchvv"
+      ],
+      "station_id": "vasantharagamfm.html",
+      "station_name": "Vasatharagam FM"
+    },
+    {
+      "media_url": [
+        "https://centova32.instainternet.com/proxy/sasi?mp=/1"
+      ],
+      "station_id": "natrinaifm.html",
+      "station_name": "Natrinai FM"
+    },
+    {
+      "media_url": [
+        "https://globalwebmusic.com/akaram.mp3",
+        "https://playerservices.streamtheworld.com/api/livestream-redirect/SP_R4111438"
+      ],
+      "station_id": "akaramradio.html",
+      "station_name": "Akaram"
+    },
+    {
+      "media_url": [
+        "https://sp.radiotamilonline.com/8006/stream",
+        "https://centova71.instainternet.com/proxy/kodairagamfm?mp=/stream",
+        "https://kodairagam-unicast2u.radioca.st/stream",
+        "https://www.liveradio.es/http://comet.shoutca.st:8014/stream"
+      ],
+      "station_id": "kodairagam.html",
+      "station_name": "Kodai Ragam"
+    },
+    {
+      "media_url": [
+        "https://stream.rcast.net/68750",
+        "https://sstamilradio.radioca.st/stream/;"
+      ],
+      "station_id": "sstamilradio.html",
+      "station_name": "SS Tamil Radio"
+    },
+    {
+      "media_url": [
+        "https://centova71.instainternet.com/proxy/theentamil?mp=/stream",
+        "https://stream.zeno.fm/8vw9hec3kwzuv"
+      ],
+      "station_id": "theentamilosai.html",
+      "station_name": "Theen Tamil Osai"
+    },
+    {
+      "media_url": [
+        "https://rbx2.hnux.com/http://10454.cloudrad.io:6176/;stream.mp3"
+      ],
+      "station_id": "ibctamil.html",
+      "station_name": "IBC Tamil "
+    },
+    {
+      "media_url": [
+        "https://usa9.fastcast4u.com/proxy/thentamilfm?mp=/;",
+        "https://stream.zeno.fm/g6emkp626qzuv"
+      ],
+      "station_id": "thentamilradio.html",
+      "station_name": "Then Tamil radio Tirupur"
+    },
+    {
+      "media_url": [
+        "https://radio5.pro-fhi.net/flux-hgtidrcv/stream"
+      ],
+      "station_id": "itr.html",
+      "station_name": "ITR FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/e0m6ypqk98luv"
+      ],
+      "station_id": "echofm.html",
+      "station_name": "Echo FM"
+    },
+    {
+      "media_url": [
+        "https://listen.radioking.com/radio/355330/stream/404626"
+      ],
+      "station_id": "swedentamilsfm.html",
+      "station_name": "Sweden Tamils FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/02n962ezyp8uv"
+      ],
+      "station_id": "vadivelucomedyradio.html",
+      "station_name": "Vadivelu Comedy Radio"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/d5skwct7hqzuv"
+      ],
+      "station_id": "gvprakashradio.html",
+      "station_name": "GV Prakash"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/x8byqha4b48uv"
+      ],
+      "station_id": "vijayradio.html",
+      "station_name": "Vijay radio"
+    },
+    {
+      "media_url": [
+        "https://dc1.serverse.com/proxy/yrxxmghz/stream",
+        "https://www.liveradio.es/http://eu10.fastcast4u.com:8270/;"
+      ],
+      "station_id": "bathusharadio.html",
+      "station_name": "Bathusha Radio"
+    },
+    {
+      "media_url": [
+        "https://usa13.fastcast4u.com/proxy/gtcfm?mp=/1"
+      ],
+      "station_id": "gtcfm.html",
+      "station_name": "GTC FM"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/ntkhu40k17zuv"
+      ],
+      "station_id": "ajithfm.html",
+      "station_name": "Ajith FM"
+    },
+    {
+      "media_url": [
+        "https://vpmurugun.radioca.st/stream"
+      ],
+      "station_id": "radioparamankurichi.html",
+      "station_name": "Radio Paramankurichi"
+    },
+    {
+      "media_url": [
+        "https://eu8.fastcast4u.com/proxy/ailevdcu?mp=/;"
+      ],
+      "station_id": "abctamil.html",
+      "station_name": "Abc"
+    },
+    {
+      "media_url": [
+        "https://a9newhits-a9media.radioca.st/stream"
+      ],
+      "station_id": "a9radionewhits.html",
+      "station_name": "A9 Radio "
+    },
+    {
+      "media_url": [
+        "http://stream.zeno.fm/wx8ue96nc18uv"
+      ],
+      "station_id": "paasamfm.html",
+      "station_name": "Paasam FM"
+    },
+    {
+      "media_url": [
+        "https://ec3.yesstreaming.net:4055/stream"
+      ],
+      "station_id": "ysrradio.html",
+      "station_name": "YSR radio FM"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio098/playlist.m3u8"
+      ],
+      "station_id": "fmrainbowpuducherry.html",
+      "station_name": "FM Rainbow Puducherry"
+    },
+    {
+      "media_url": [
+        "https://spserver.sscast2u.in/isaitamilfm/stream"
+      ],
+      "station_id": "isaitamilfm.html",
+      "station_name": "Isai Tamil FM"
+    },
+    {
+      "media_url": [
+        "https://streaming.radio.co/s0cfc93915/listen"
+      ],
+      "station_id": "ustamilfm.html",
+      "station_name": "US Tamil FM"
+    },
+    {
+      "media_url": [
+        "https://ec2.yesstreaming.net:2540/stream"
+      ],
+      "station_id": "muthamilradio.html",
+      "station_name": "Muthamil Radio 88.9 HD3"
+    },
+    {
+      "media_url": [
+        "https://stream.zeno.fm/wkqvzsg1238uv"
+      ],
+      "station_id": "mohanhits.html",
+      "station_name": "Mohan Hits"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio040/playlist.m3u8\t"
+      ],
+      "station_id": "trichyfm.html",
+      "station_name": "Trichy FM"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio050/playlist.m3u8"
+      ],
+      "station_id": "airkaraikalfm.html",
+      "station_name": "Air karaikal FM"
+    },
+    {
+      "media_url": [
+        "https://radio13.pro-fhi.net:19236/stream.mp3"
+      ],
+      "station_id": "trttamiloli.html",
+      "station_name": "TRT Tamil Oli FM"
+    },
+    {
+      "media_url": [
+        "https://listen.openstream.co/7044/audio",
+        "https://astro3.rastream.com/raaga"
+      ],
+      "station_id": "raagafm.html",
+      "station_name": "Raaga FM Malaysia"
+    },
+    {
+      "media_url": [
+        "https://cp12.serverse.com/proxy/vasanthamfm?mp=/stream",
+        "https://shaincast.caster.fm:47814/listen.mp3"
+      ],
+      "station_id": "vasanthamfm.html",
+      "station_name": "Vasantham FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://220.247.227.20:8000/Threndralstream"
+      ],
+      "station_id": "thendralfm.html",
+      "station_name": "Thendral FM"
+    },
+    {
+      "media_url": [
+        "http://stream.zeno.fm/0cys2h41w0hvv"
+      ],
+      "station_id": "arrahmanradio.html",
+      "station_name": "Ar Rahman"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://220.247.234.207:8000/cirstream",
+        "https://www.liveradio.es/http://220.247.227.20:8000/Threndralstream"
+      ],
+      "station_id": "ilangairadio.html",
+      "station_name": "Ilangai Radio"
+    },
+    {
+      "media_url": [
+        "https://rbx2.hnux.com/http://5984.cloudrad.io:8032/;stream.mp3"
+      ],
+      "station_id": "lankasrifm.html",
+      "station_name": "Lankasri FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://tamil.crabdance.com:8002/5",
+        "https://strw3.openstream.co/1311"
+      ],
+      "station_id": "radiocitychennai.html",
+      "station_name": "Radio city chennai"
+    },
+    {
+      "media_url": [
+        "https://centova.radioservers.biz/proxy/eastfmc1/stream",
+        "https://stream.zeno.fm/bshhtz6hanruv.aac"
+      ],
+      "station_id": "eastfm.html",
+      "station_name": "East FM 102.7"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://220.247.227.6:8000/Tnsstream",
+        "https://stream.zeno.fm/xekhrn4zetzuv"
+      ],
+      "station_id": "slbctamil.html",
+      "station_name": "SLBC Tamil national service FM"
+    },
+    {
+      "media_url": [
+        "https://sp14.instainternet.com/8090/stream"
+      ],
+      "station_id": "ilayarajaradio.html",
+      "station_name": "Ilayaraja Radio"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio062/playlist.m3u8"
+      ],
+      "station_id": "tirunelvelifmrainbow.html",
+      "station_name": "Fm rainbow Tirunelveli"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio017/playlist.m3u8"
+      ],
+      "station_id": "fmrainbowcoimbatore.html",
+      "station_name": "FM Rainbow Coimbatore 103.0 MHz"
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio022/playlist.m3u8"
+      ],
+      "station_id": "fmrainbowtamil.html",
+      "station_name": "FM Rainbow"
+    },
+    {
+      "media_url": [
+        "https://sp14.instainternet.com/8058/stream",
+        "https://ssl.shoutcaststreaming.us:8077/index.html/stream",
+        "https://sp14.instainternet.com/8058/stream",
+        "https://node-09.zeno.fm/qzx5zxn0bg0uv?rj-ttl=5&rj-tok=AAABdayVk_0AywVIKL49q-xYtw"
+      ],
+      "station_id": "shakthifm.html",
+      "station_name": "Shakthi FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://live.rcast.net:8694/stream?type=http&nocache=11",
+        "https://livessl.rcast.net/stream/66462.mp3",
+        "https://www.liveradio.es/http://live.rcast.net:8694/;stream.mp3",
+        "https://livessl.rcast.net/stream/66462.mp3",
+        "https://www.liveradio.es/http://live.rcast.net:8694/stream?type=http&nocache=11"
+      ],
+      "station_id": "radiogilli.html",
+      "station_name": "Radio Gilli 106.5 FM"
+    },
+    {
+      "media_url": [
+        "https://usa2.fastcast4u.com/proxy/tamilsun?mp=/;"
+      ],
+      "station_id": "tamilsunfm.html",
+      "station_name": "Tamil Sun FM"
+    },
+    {
+      "media_url": [
+        "https://radio.lotustechnologieslk.net:8006/;stream.mp3",
+        "https://www.liveradio.es/http://209.133.216.3:7071/;"
+      ],
+      "station_id": "sooriyanfm.html",
+      "station_name": "Sooriyan FM"
+    },
+    {
+      "media_url": [
+        "https://playerservices.streamtheworld.com/api/livestream-redirect/MINNAL_FMAAC.aac"
+      ],
+      "station_id": "minnalfm.html",
+      "station_name": "Minnal FM"
+    },
+    {
+      "media_url": [
+        "https://www.liveradio.es/http://tamil.crabdance.com:8002/1",
+        "https://listen.openstream.co/4543/audio",
+        "https://www.liveradio.es/http://tamil.crabdance.com:8002/1 OR https://strw3.openstream.co/705",
+        "https://stream.zeno.fm/3dktvcp0bg0uv"
+      ],
+      "station_id": "radiomirchitamil.html",
+      "station_name": "Radio Mirchi 98.3 Chennai "
+    },
+    {
+      "media_url": [
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio051/playlist.m3u8",
+        "https://air.pc.cdn.bitgravity.com/air/live/pbaudio022/master.m3u8"
+      ],
+      "station_id": "kodaifm.html",
+      "station_name": "Kodaikanal FM"
+    }
+  ]

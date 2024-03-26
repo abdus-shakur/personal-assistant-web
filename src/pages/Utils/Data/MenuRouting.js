@@ -1,4 +1,4 @@
-import { AccountBalanceWallet, Apps, Google, Home, PeopleAlt, SdStorage, Task } from "@mui/icons-material";
+import { AccountBalanceWallet, Apps, Google, Home, PeopleAlt, Radio as RadioIcon, SdStorage, Task } from "@mui/icons-material";
 import ApplicationManagement from "../../ApplicationManager/ApplicationManagement";
 import EmailManager from "../../ApplicationManager/EmailManager";
 import UrlPage from "../../ApplicationManager/UrlPage";
@@ -14,6 +14,7 @@ import TaskPage from "../../Task/TaskPage";
 import BirthdayReminder from "../../RelationsManager/BirthdayReminder";
 import Wallet from "../../Finance/Wallet/Wallet";
 import ContactsManagement from "../../DataManagement/ContactsManagement";
+import Radio from "../../Media/Radio";
 
 
 export const MENUS = [
@@ -128,6 +129,20 @@ export const MENUS = [
                 name:"Auth Management",
                 path:"auth-management",
                 target:<AuthManagement/>
+            }
+        ]
+    },
+    {
+        name:"Media",
+        path:"media",
+        menuColor:"#A94438",
+        target:<Radio/>,
+        icon:<RadioIcon/>,
+        subMenus:[
+            {
+                name:"Online Radio",
+                path:"online-radio",
+                target:<Radio/>
             }
         ]
     },

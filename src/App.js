@@ -1,4 +1,4 @@
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+import { CssBaseline, GlobalStyles, ThemeProvider, createTheme } from '@mui/material';
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
 import './App.css';
@@ -22,17 +22,33 @@ function App() {
   const darkTheme = createTheme({
     palette: {
       mode: darkThemed?'dark':'light',
+      
     },
   });
 
+  const GlobalStyles = () => (
+    <style>
+      {`
+        @supports (color-scheme: light dark) {
+          html {
+            color-scheme: ${darkThemed?'dark':'light'};
+          }
+        }
+      `}
+    </style>
+  );
 
 
-  return (
+
+  return (<>
+    
     <ThemeProvider theme={darkTheme}>
       <Notifications/>
       <CssBaseline />
+      <GlobalStyles />
       <PageRouter darkThemed={darkThemed} changeTheme={()=>setThemePreference(!darkThemed)} setThemePreference={()=>setThemePreference(!darkThemed)} />
     </ThemeProvider>
+    </>
   );
 }
 

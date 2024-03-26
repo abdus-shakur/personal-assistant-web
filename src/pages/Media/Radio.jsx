@@ -1,5 +1,7 @@
-import { PlayArrow } from "@mui/icons-material";
+import { CheckBox, CheckBoxOutlineBlank, PlayArrow } from "@mui/icons-material";
 import {
+  Autocomplete,
+  Checkbox,
   IconButton,
   List,
   ListItemIcon,
@@ -49,6 +51,25 @@ export default function Radio() {
         placeholder="Search Radio Stations"
         onChange={(e) => searchRadioStations(e)}
       ></TextField>
+      <Autocomplete  options={stationData.map((dat,index)=>{
+        dat.label = dat.name;
+        // dat.index = index;
+        return dat;
+      })} value={"first"}
+
+      renderOption={(props, option, { selected }) => (
+        <li {...props}>
+          <Checkbox
+            icon={<CheckBoxOutlineBlank fontSize="small" />}
+            checkedIcon={<CheckBox fontSize="small" />}
+            style={{ marginRight: 8 }}
+            checked={selected}
+          />
+          {option.name}
+        </li>
+      )}
+      
+      renderInput={(params)=><TextField  {...params} label="Test" value="first">Value</TextField>}></Autocomplete>
       <List>
         {currentStations ? (
           currentStations.map((stationIndex, index) => (

@@ -46,10 +46,7 @@ export default function Radio() {
             return accumulator + "|" + currentValue;
         }
     },"")
-      console.log(name)
-      console.log("Inside")
-      name = "("+name.substring(0,name.length-1)+")"
-      console.log(name)
+      name = "("+name+")"
     }
     for (let i = 0; i < stationData.length; i++) {
       let data = stationData[i];
@@ -68,7 +65,6 @@ export default function Radio() {
   };
   const [selectedOptions,setSelectedOptions] = useState([]);
   const handleOnChange = (event,values)=>{
-    console.log(values)
     values = values.map(data=>{
       if(typeof data === "object"){
         return data
@@ -82,7 +78,7 @@ export default function Radio() {
   }
   return (
     <>
-    <Grid container gap={3} sx={{paddingTop:"1rem"}}>
+    <Grid container gap={2} sx={{paddingTop:"1rem"}}>
       <Grid item>
       <TextField sx={{width:"30rem"}}
         label="Search"

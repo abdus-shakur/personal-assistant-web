@@ -1,7 +1,7 @@
 import { ChevronRightOutlined, ExpandMoreOutlined } from "@mui/icons-material";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { TreeItem, TreeView, useTreeItem } from "@mui/x-tree-view";
-import React from "react";
+import React, { useState } from "react";
 import clsx from 'clsx';
 
 export default function UrlPage() {
@@ -97,14 +97,33 @@ function BookmarkView() {
     return <TreeItem ContentComponent={CustomContent} {...props} ref={ref} />;
   });
 
+  let links = [{
+    label:"Google",
+    link:"https://www.google.com"
+  }]
+
+  let test = 11;
+
+  const [selectedNode, setSelectedNode] = useState(null);
+
+  const handleNodeToggle = (event, node) => {
+    console.log(node);
+    setSelectedNode(node);
+    if(node.link){
+      window.open(links[0].link, "_blank")
+    }
+  };
+
   return (
     <Box sx={{ minHeight: 180, flexGrow: 1, maxWidth: "100%" }}>
       <TreeView
         aria-label="icon expansion"
         defaultCollapseIcon={<ExpandMoreOutlined />}
         defaultExpandIcon={<ChevronRightOutlined />}
+        onNodeToggle={handleNodeToggle}
+        onNo
       >
-        <CustomTreeItem nodeId="1" label="Applications">
+        <CustomTreeItem nodeId="1" label="Applications" >
           <CustomTreeItem nodeId="2" label="Calendar" />
         </CustomTreeItem>
         <CustomTreeItem nodeId="5" label="Documents">
@@ -113,6 +132,9 @@ function BookmarkView() {
             <CustomTreeItem nodeId="8" label="index.js" />
           </CustomTreeItem>
         </CustomTreeItem>
+        {links.map(link=>{
+          return <CustomTreeItem nodeId={""+(test++)} label={link.label} onClick={()=>window.location.href=link.link} />
+        })}
       </TreeView>
     </Box>
   );

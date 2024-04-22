@@ -15,6 +15,7 @@ import BirthdayReminder from "../../RelationsManager/BirthdayReminder";
 import Wallet from "../../Finance/Wallet/Wallet";
 import ContactsManagement from "../../DataManagement/ContactsManagement";
 import Radio from "../../Media/Radio";
+import FamilyTreePage from "../../RelationsManager/FamilyTree/FamilyTreePage";
 
 
 export const MENUS = [
@@ -110,6 +111,11 @@ export const MENUS = [
                 name:"Contacts View",
                 path:"contacts-view",
                 target:<VCardContactViewPage/>
+            },
+            {
+                name:"Family Tree",
+                path:"family-tree",
+                target:<FamilyTreePage/>
             }
         ]
     },

@@ -1,0 +1,17 @@
+*{
+  // background-color: red;
+}
+
+.node__root{
+  // disp
+  fill: orange;
+  background-color: orange;;
+  // display:none;
+}
+.node__branch{
+  fill:blue;
+}
+.node__leaf{
+  fill:green;
+  display: none;
+}

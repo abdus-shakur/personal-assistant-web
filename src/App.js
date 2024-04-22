@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from 'react';
 import './App.css';
 
-import { Notifications } from 'react-push-notification';
 import PageRouter from './pages/PageRouter';
 
 function App() {
@@ -43,7 +42,6 @@ function App() {
   return (<>
     
     <ThemeProvider theme={darkTheme}>
-      <Notifications/>
       <CssBaseline />
       <GlobalStyles />
       <PageRouter darkThemed={darkThemed} changeTheme={()=>setThemePreference(!darkThemed)} setThemePreference={()=>setThemePreference(!darkThemed)} />

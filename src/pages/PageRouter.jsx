@@ -1,4 +1,4 @@
-import React, { createRef, useEffect } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import { BrowserRouter, HashRouter, Outlet, Route, Routes } from "react-router-dom";
 import AuthPage from "./AuthPage";
 import PrimarySearchAppBar from "./Utils/Components/AppBar";
@@ -11,6 +11,9 @@ import Logout from "./Logout";
 import { isAuthenticated } from "./Utils/Service/auth";
 
 import * as ENV_VAR from "../config/env"
+import { Fab, IconButton } from "@mui/material";
+import { OpenInFull } from "@mui/icons-material";
+import { PAGES } from "./Utils/Data/PageRoutings";
 
 
 export default function PageRouter(props){
@@ -28,15 +31,22 @@ export default function PageRouter(props){
                 document.getElementsByName('theme-color')[0].setAttribute('content','#000000');
             }
         },[menu])
+
+        const [showAppBar,setShowAppBar] = useState(true);
         
         return (<React.Fragment>
+            {showAppBar?
             <PrimarySearchAppBar
                 title={`${menu.name} - ${subMenu.name}`}
                 toggleDrawer={()=>switchRef.current.toggleDrawer()}
                 color={menu.menuColor}
                 changeTheme={changeTheme}
-            ></PrimarySearchAppBar>
-            
+            ></PrimarySearchAppBar>:<></>}
+            <Fab size="large" color="secondary" aria-label="add" sx={{position: 'absolute',
+                bottom: 16,
+                left: 16}} onClick={()=>setShowAppBar(!showAppBar)}>
+                    <OpenInFull />
+            </Fab>
             {subMenu.target}
         </React.Fragment>)
     }
@@ -55,6 +65,7 @@ export default function PageRouter(props){
         <Route path={URLS.ERROR_URL} element={<Error/>} errorElement={<React.Fragment>Not Found</React.Fragment>} />
         <Route path={URLS.LOGOUT} element={<Logout/>} errorElement={<React.Fragment>Error Logging out Element</React.Fragment>} />
         <Route exact path={URLS.WILD_CARD_BASE_URL} element={<AuthPage gotoLandingPage={URLS.APP_LANDING_PAGE}/>}/>
+        {PAGES.map(page=><Route exact path={page.path} element={page.target}/>)}
       </Routes>
     </BrowserRouter>
     </>

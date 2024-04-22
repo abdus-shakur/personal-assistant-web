@@ -1,0 +1,30 @@
+.people-view{
+
+  height:100vh;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+
+  & .sidebar{
+    width:60%;
+    max-width: 25rem;
+    height:100%;
+
+    & > .MuiPaper-root {
+      display: flex;
+    flex-direction: column;
+    }
+    
+  }
+
+
+  & .details{
+    background-color: orange;
+  }
+  
+}
+
+
+.people-search{
+  flex-grow: 1;
+}

@@ -89,6 +89,7 @@ export default function Radio() {
       <Grid item>
       <Autocomplete sx={{width:"30rem"}} multiple options={stationData.map((data,index)=>{data.key=index;return data;})}
       getOptionLabel={(option) => option.name}
+      clearOnEscape
       value={selectedOptions}
       onChange={handleOnChange}
       freeSolo="true"

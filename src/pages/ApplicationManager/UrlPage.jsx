@@ -2,6 +2,7 @@ import { ChevronRightOutlined, ExpandMoreOutlined } from "@mui/icons-material";
 import { Box, Button, Container, Typography } from "@mui/material";
 import { TreeItem, TreeView, useTreeItem } from "@mui/x-tree-view";
 import React, { useState } from "react";
+import React, { useState } from "react";
 import clsx from 'clsx';
 
 export default function UrlPage() {
@@ -121,7 +122,6 @@ function BookmarkView() {
         defaultCollapseIcon={<ExpandMoreOutlined />}
         defaultExpandIcon={<ChevronRightOutlined />}
         onNodeToggle={handleNodeToggle}
-        onNo
       >
         <CustomTreeItem nodeId="1" label="Applications" >
           <CustomTreeItem nodeId="2" label="Calendar" />
